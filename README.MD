@@ -1,8 +1,8 @@
-# A collection of common interfaces for Java
+# A collection of common interfaces and base implementations for Java
 
-[
 ## Overview
 
+<!--
 This library is hosted in the [Maven Central Repositoy](http://search.maven.org/#artifactdetails|net.markenwerk|commons-interfaces|1.0.0|jar). You can use it with the following coordinates:
 
 ```xml
@@ -12,6 +12,7 @@ This library is hosted in the [Maven Central Repositoy](http://search.maven.org/
 	<version>1.0.0</version>
 </dependency>
 ```
+-->
 
 Consult the [usage description](#usage) and [Javadoc](http://markenwerk.github.io/java-commons-interfaces/javadoc/1.0.0/index.html) for further information.
 
