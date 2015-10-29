@@ -21,52 +21,52 @@
  */
 package net.markenwerk.commons.interfaces.exceptions;
 
-import net.markenwerk.commons.interfaces.Producer;
+import net.markenwerk.commons.interfaces.Provider;
 
 /**
- * A {@link ProducerException} indicates that a {@link Producer} failed to
- * produce a product.
+ * A {@link ProviderException} indicates that a {@link Provider} failed to
+ * provide a product.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)
  * @since 1.0.0
  * 
- * @see Producer
+ * @see Provider
  */
-public final class ProducerException extends RuntimeException {
+public final class ProviderException extends RuntimeException {
 
-	private static final long serialVersionUID = 8658949883506215155L;
+	private static final long serialVersionUID = -8060847820853704214L;
 
 	/**
-	 * Constructs a {@link ProducerException} with the given message and cause.
+	 * Constructs a {@link ProviderException} with the given message and cause.
 	 * The given cause is chained to this exception.
 	 *
 	 * @param message
 	 *            The message.
 	 * @param cause
-	 *            The cause of this {@link ProducerException}.
+	 *            The cause of this {@link ProviderException}.
 	 */
-	public ProducerException(String message, Throwable cause) {
+	public ProviderException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
 	/**
-	 * Constructs a {@link ProducerException} with the given message.
+	 * Constructs a {@link ProviderException} with the given message.
 	 *
 	 * @param message
 	 *            The message.
 	 */
-	public ProducerException(String message) {
+	public ProviderException(String message) {
 		super(message);
 	}
 
 	/**
-	 * Constructs a {@link ProducerException} with the given cause. The given
+	 * Constructs a {@link ProviderException} with the given cause. The given
 	 * cause is chained to this exception.
 	 *
 	 * @param cause
-	 *            The cause of this {@link ProducerException}.
+	 *            The cause of this {@link ProviderException}.
 	 */
-	public ProducerException(Throwable cause) {
+	public ProviderException(Throwable cause) {
 		super(cause);
 	}
 
