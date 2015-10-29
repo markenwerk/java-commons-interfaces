@@ -38,6 +38,8 @@ A [`Callback<Result>`][Callback] needs to implement the following method:
 public void onResult(Result result);
 ```
 
+A [`Callback`][Callback] should not throw any exceptions.
+
 One common use case for a [`Callback`][Callback] is som service, that runs synchronously.
 
 ### Predicate
@@ -49,6 +51,8 @@ A [`Predicate<Subject>`][Predicate] needs to implement the following method:
 ```java
 public boolean test(Subject subject) throws PredicateException;
 ```
+
+A [`Predicate`][Predicate] should wrap every exception in an [`PredicateException`][PredicateException].
 
 One common use case for a [`Predicate`][Predicate] is some data provider, that wants to provide an elaborate API that can automatically filter the provided data.
 
@@ -64,6 +68,8 @@ A [`Converter<From, To>`][Converter] needs to implement the following method:
 public To convert(From from) throws ConverterException
 ```
 
+A [`Converter`][Converter] should wrap every exception in an [`ConverterException`][ConverterException].
+
 One common use case for a [`Converter`][Converter] is some data provider, that wants to provide an elaborate API that can automatically convert the provided data.
 
 ### Translator
@@ -78,6 +84,9 @@ public To convert(From from) throws ConverterException
 public To revert(From from) throws ConverterException
 ```
 
+A [`Translator`][Translator] should wrap every exception in an [`ConverterException`][ConverterException].
+
+
 ### Provider, Producer and Factory
 
 #### Provider
@@ -90,6 +99,7 @@ A [`Provider<Product>`][Provider] needs to implement the following method:
 public Product provide() throws ProviderException
 ```
 
+A [`Provider`][Provider] should wrap every exception in an [`ProviderException`][ProviderException].
 A [`Provider`][Provider] may return the same instance for multiple invocations. Therefore, a [`Provider`][Provider] schouln't be used to provide stateful or consumable data.
 
 #### Producer
@@ -101,7 +111,7 @@ A [`Producer<Product>`][Producer] needs to implement the following method:
 ```java
 public Product produce() throws ProducerException
 ```
-
+A [`Producer`][Producer] should wrap every exception in an [`ProducerException`][ProducerException].
 A [`Producer`][Producer] must return a new instance for every invocation.
 
 #### Factory
@@ -113,8 +123,9 @@ A [`Factory<ProductSpecification, Product>`][Factory] needs to implement the fol
 ```java
 public Product produce(ProductSpecification specification) throws FactoryException
 ```
-A [`Factory`][Factory] must return a new instance for every invocation.
 
+A [`Factory`][Factory] should wrap every exception in an [`FactoryException`][FactoryException].
+A [`Factory`][Factory] must return a new instance for every invocation.
 
 
 [Callback]: http://markenwerk.github.io/java-commons-interfaces/javadoc/1.1.1/index.html?net/markenwerk/commoins/interfaces/Callback.html
@@ -124,6 +135,12 @@ A [`Factory`][Factory] must return a new instance for every invocation.
 [Producer]: http://markenwerk.github.io/java-commons-interfaces/javadoc/1.1.1/index.html?net/markenwerk/commoins/interfaces/Producer.html
 [Provider]: http://markenwerk.github.io/java-commons-interfaces/javadoc/1.1.1/index.html?net/markenwerk/commoins/interfaces/Provider.html
 [Translator]: http://markenwerk.github.io/java-commons-interfaces/javadoc/1.1.1/index.html?net/markenwerk/commoins/interfaces/Translator.html
+
+[ConverterException]: http://markenwerk.github.io/java-commons-interfaces/javadoc/1.1.1/index.html?net/markenwerk/commoins/interfaces/exceptions/ConverterException.html
+[FactoryException]: http://markenwerk.github.io/java-commons-interfaces/javadoc/1.1.1/index.html?net/markenwerk/commoins/interfaces/exceptions/FactoryException.html
+[PredicateException]: http://markenwerk.github.io/java-commons-interfaces/javadoc/1.1.1/index.html?net/markenwerk/commoins/interfaces/exceptions/PredicateException.html
+[ProducerException]: http://markenwerk.github.io/java-commons-interfaces/javadoc/1.1.1/index.html?net/markenwerk/commoins/interfaces/exceptions/ProducerException.html
+[ProviderException]: http://markenwerk.github.io/java-commons-interfaces/javadoc/1.1.1/index.html?net/markenwerk/commoins/interfaces/exceptions/ProviderException.html
 
 [Function]: http://docs.oracle.com/javase/8/docs/api/index.html?java/util/function/Function.html
 [Runnable]: http://docs.oracle.com/javase/6/docs/api/index.html?java/io/Runnable.html
