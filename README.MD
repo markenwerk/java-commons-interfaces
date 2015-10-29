@@ -1,5 +1,9 @@
 # Some common interfaces for Java
 
+[![Build Status](https://travis-ci.org/markenwerk/java-commons-interfaces.svg?branch=master)](https://travis-ci.org/markenwerk/java-commons-interfaces)
+[![Dependency Status](https://www.versioneye.com/user/projects/56323f1636d0ab0016001bc4/badge.svg?style=flat)](https://www.versioneye.com/user/projects/56323f1636d0ab0016001bc4)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/net.markenwerk/commons-interfaces/badge.svg)](https://maven-badges.herokuapp.com/maven-central/net.markenwerk/commons-interfaces)
+
 This is a collection of some common interfaces that describe everyday use cases. It is intended for those, who provide some API and don't want to redeclare somewhat trivial interfaces all the time.
 
 ## Overview
@@ -116,7 +120,7 @@ A [`Producer`][Producer] must return a new instance for every invocation.
 
 #### Factory
 
-The [`Factory`][Factory] interface should be used by components that need multiple fresh instances of some value and needs to specify some parameters of the produced values.
+The [`Factory`][Factory] interface should be used by components that needs the functionality of a[`Producer`][Producer], but need to specify some parameters of the produced values.
 
 A [`Factory<ProductSpecification, Product>`][Factory] needs to implement the following method:
 
