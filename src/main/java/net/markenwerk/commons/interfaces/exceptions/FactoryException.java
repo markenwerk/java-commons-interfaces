@@ -24,8 +24,8 @@ package net.markenwerk.commons.interfaces.exceptions;
 import net.markenwerk.commons.interfaces.Factory;
 
 /**
- * A {@link FactoryException} indicates that a {@link Factory} failed to
- * provide a product.
+ * A {@link FactoryException} indicates that a {@link Factory} failed to provide
+ * a product.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)
  * @since 1.0.0
