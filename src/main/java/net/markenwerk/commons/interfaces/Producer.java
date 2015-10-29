@@ -21,14 +21,28 @@
  */
 package net.markenwerk.commons.interfaces;
 
+import java.io.InputStream;
+
 import net.markenwerk.commons.interfaces.exceptions.ProducerException;
 
 /**
+ * A {@link Producer} may be used in situation where it is either not certain
+ * that a value that is not suitable to be provided by a {@link Provider} (i.e.
+ * because it is stateful) will be used or where multiple instances of the same
+ * data (i.e. a subsystem that repeatedly consumes data that is provided as an
+ * {@link InputStream} or a subsystem that needs an encryption key at arbitrary
+ * times and wants to discard it after every use).
+ * 
+ * <p>
+ * Implementers must produce a new instance of the product, each time this
+ * method is called.
  * 
  * @param <Product>
  *            The type of the values to be produced.
  * @since 1.0.0
  * @author Torsten Krause (tk at markenwerk dot net)
+ * @see Factory
+ * @see Provider
  */
 public interface Producer<Product> {
 

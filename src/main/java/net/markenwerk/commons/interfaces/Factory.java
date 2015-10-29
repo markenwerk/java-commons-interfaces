@@ -24,6 +24,13 @@ package net.markenwerk.commons.interfaces;
 import net.markenwerk.commons.interfaces.exceptions.FactoryException;
 
 /**
+ * A {@link Factory} may be used in situation where a simple {@link Producer} is
+ * not sufficient because it needs some control to specify some parameters of
+ * the produced values.
+ * 
+ * <p>
+ * Implementers must produce a new instance of the product, each time this
+ * method is called.
  * 
  * @param <ProductSpecification>
  *            The type of specification for the produced values.
@@ -31,6 +38,8 @@ import net.markenwerk.commons.interfaces.exceptions.FactoryException;
  *            The type of the provided values.
  * @since 1.0.0
  * @author Torsten Krause (tk at markenwerk dot net)
+ * @see Producer
+ * @see Provider
  */
 public interface Factory<ProductSpecification, Product> {
 

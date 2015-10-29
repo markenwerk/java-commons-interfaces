@@ -24,11 +24,31 @@ package net.markenwerk.commons.interfaces;
 import net.markenwerk.commons.interfaces.exceptions.ProviderException;
 
 /**
+ * A {@link Provider} may be used in situation where it is not certain that a
+ * value will be used, but the provisioning of the value may be costly (i.e. a
+ * subsystem that may need some information which is usually stored in a file or
+ * database).
+ * 
+ * A subsystem that requires access to a non-trivial value, but not necessarily
+ * uses it, should ask for a {@code Provider} for that value, instead of the value
+ * itself.
+ * 
+ * Implementers may produce a new instance of the product, each time this method
+ * is called or reuse an already provided instance (i.e. by referring to a
+ * cache, whereby the provider holds the fixed lookup key, or by storing a
+ * reference to the value, once it has been resolved), but every provided object
+ * must be equal to any previously provided value.
+ * 
+ * A {@code Provider} should only be used to provide stateless values,
+ * especially, if those values can only be consumed once. For those situations,
+ * it may be more appropriate to use a {@link Producer}.
  * 
  * @param <Product>
  *            The type of the values to be provided.
  * @since 1.0.0
  * @author Torsten Krause (tk at markenwerk dot net)
+ * @see Factory
+ * @see Producer
  */
 public interface Provider<Product> {
 
