@@ -27,7 +27,6 @@ package net.markenwerk.commons.interfaces.exceptions;
  * 
  * @author Torsten Krause (tk at markenwerk dot net)
  * @since 1.0.0
- * @see Lazy
  */
 public final class InitializationException extends RuntimeException {
 

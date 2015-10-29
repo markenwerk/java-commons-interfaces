@@ -21,7 +21,6 @@
  */
 package net.markenwerk.commons.interfaces.exceptions;
 
-import net.markenwerk.commons.interfaces.Factory;
 import net.markenwerk.commons.interfaces.Provider;
 
 /**
@@ -31,8 +30,7 @@ import net.markenwerk.commons.interfaces.Provider;
  * @author Torsten Krause (tk at markenwerk dot net)
  * @since 1.0.0
  * 
- * @see Factory
- * @see CustomFactory
+ * @see Provider
  */
 public final class ProviderException extends RuntimeException {
 
