@@ -30,8 +30,8 @@ import net.markenwerk.commons.interfaces.exceptions.ProviderException;
  *
  * @param <Subject>
  */
-public interface Provider<Subject> {
+public interface Provider<Specification, Product> {
 
-	public Subject provide() throws ProviderException;
+	public Product provide(Specification specification) throws ProviderException;
 
 }
