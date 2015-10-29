@@ -131,7 +131,6 @@ public Product produce(ProductSpecification specification) throws FactoryExcepti
 A [`Factory`][Factory] should wrap every exception in an [`FactoryException`][FactoryException].
 A [`Factory`][Factory] must return a new instance for every invocation.
 
-
 [Callback]: http://markenwerk.github.io/java-commons-interfaces/javadoc/1.1.1/index.html?net/markenwerk/commoins/interfaces/Callback.html
 [Converter]: http://markenwerk.github.io/java-commons-interfaces/javadoc/1.1.1/index.html?net/markenwerk/commoins/interfaces/Converter.html
 [Factory]: http://markenwerk.github.io/java-commons-interfaces/javadoc/1.1.1/index.html?net/markenwerk/commoins/interfaces/Factory.html
