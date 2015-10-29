@@ -24,8 +24,8 @@ package net.markenwerk.commons.interfaces.exceptions;
 import net.markenwerk.commons.interfaces.Factory;
 
 /**
- * A {@link FactoryException} indicates that a {@link Factory} failed to produce
- * a product.
+ * A {@link FactoryException} indicates that a {@link Factory} failed to
+ * provide a product.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)
  * @since 1.0.0
@@ -34,7 +34,7 @@ import net.markenwerk.commons.interfaces.Factory;
  */
 public final class FactoryException extends RuntimeException {
 
-	private static final long serialVersionUID = -3338605809433552663L;
+	private static final long serialVersionUID = -8060847820853704214L;
 
 	/**
 	 * Constructs a {@link FactoryException} with the given message and cause.

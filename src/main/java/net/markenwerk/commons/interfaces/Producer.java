@@ -21,19 +21,17 @@
  */
 package net.markenwerk.commons.interfaces;
 
-import net.markenwerk.commons.interfaces.exceptions.FactoryException;
+import net.markenwerk.commons.interfaces.exceptions.ProducerException;
 
 /**
  * 
- * @param <Order>
- *            The type of specification for the provided values.
  * @param <Product>
- *            The type of the provided values.
+ *            The type of the values to be produced.
  * @since 1.0.0
  * @author Torsten Krause (tk at markenwerk dot net)
  */
-public interface Factory<Order, Product> {
+public interface Producer<Product> {
 
-	public Product provide(Order order) throws FactoryException;
+	public Product produce() throws ProducerException;
 
 }

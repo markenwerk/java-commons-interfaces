@@ -19,21 +19,55 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package net.markenwerk.commons.interfaces;
+package net.markenwerk.commons.interfaces.exceptions;
 
-import net.markenwerk.commons.interfaces.exceptions.ProviderException;
+import net.markenwerk.commons.interfaces.Producer;
 
 /**
+ * A {@link ProducerException} indicates that a {@link Producer} failed to produce
+ * a product.
  * 
- * @param <Specification>
- *            The type of specification for the provided values.
- * @param <Product>
- *            The type of the provided values.
- * @since 1.0.0
  * @author Torsten Krause (tk at markenwerk dot net)
+ * @since 1.0.0
+ * 
+ * @see Producer
  */
-public interface Provider<Specification, Product> {
+public final class ProducerException extends RuntimeException {
 
-	public Product provide(Specification specification) throws ProviderException;
+	private static final long serialVersionUID = -3338605809433552663L;
+
+	/**
+	 * Constructs a {@link ProducerException} with the given message and cause.
+	 * The given cause is chained to this exception.
+	 *
+	 * @param message
+	 *            The message.
+	 * @param cause
+	 *            The cause of this {@link ProducerException}.
+	 */
+	public ProducerException(String message, Throwable cause) {
+		super(message, cause);
+	}
+
+	/**
+	 * Constructs a {@link ProducerException} with the given message.
+	 *
+	 * @param message
+	 *            The message.
+	 */
+	public ProducerException(String message) {
+		super(message);
+	}
+
+	/**
+	 * Constructs a {@link ProducerException} with the given cause. The given
+	 * cause is chained to this exception.
+	 *
+	 * @param cause
+	 *            The cause of this {@link ProducerException}.
+	 */
+	public ProducerException(Throwable cause) {
+		super(cause);
+	}
 
 }

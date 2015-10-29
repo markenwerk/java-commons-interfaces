@@ -26,7 +26,10 @@ import net.markenwerk.commons.interfaces.exceptions.ConverterException;
 /**
  * A {@link Converter} is used to convert (transform, translate, project,
  * evaluate, ...) values from one form into another. As such, a
- * {@link Converter} is little more than an arbitrary function.
+ * {@link Converter} is little more than an arbitrary function. It is usually
+ * used in a scenario where some sort of data provider wants to offer the
+ * possibility to convert values into the desired type before delivery or during
+ * the data processing.
  * 
  * <p>
  * Common use cases of a {@link Converter} include:
