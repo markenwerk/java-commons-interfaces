@@ -65,7 +65,7 @@ One common use case for a [`Predicate`][Predicate] is some data provider, that w
 
 ```java
 Collection<Integer> values = ...;
-FilterIterator iterator = new FilterIterator(values, new Predicate<Integer>() {
+FilteringIterator<Integer> iterator = new FilterIterator(values, new Predicate<Integer>() {
 
 	@Override
 	public boolean test(Integer integer) throws PredicateException {
@@ -88,7 +88,9 @@ for (Integer integer : new FilterIterator(values, integer -> integer >= 0)) {
 
 ### Converter and Translator
 
-The [`Converter`][Converter] interface should be used by components that perform conversions on some values; most likely, but not necessarily, to vonvert a collection or stream if oncoming or outgoing values.
+#### Converter
+
+The [`Converter`][Converter] interface should be used by components that perform conversions on some values; most likely, but not necessarily, to convert a collection or stream if oncoming or outgoing values.
 
 A [`Converter<From, To>`][Converter] needs to implement the following method:
 
@@ -96,24 +98,61 @@ A [`Converter<From, To>`][Converter] needs to implement the following method:
 public To convert(From from) throws ConverterException
 ```
 
-One common use case for a [`Converter`][Converter] is some data provider, that wants to provide an elaborate API that can automatically convert the provided data.
-
-Here is an example:
+One common use case for a [`Converter`][Converter] is some data provider, that wants to provide an elaborate API that can automatically convert the provided data. Here is an example:
 
 ```java
 Collection<Integer> values = ...;
-FilterIterator iterator = new FilterIterator(values, new Predicate<Integer>() {
-
+ConvertingIterator<Integer, String> iterator = new ConvertingIterator(values, new Converter<Integer, String>() {
 	@Override
-	public boolean test(Integer integer) throws PredicateException {
-		return integer >= 0;
+	public boolean convert(Integer integer) throws PredicateException {
+		return Integer.toString(integer);
 	}
 });
 for (Integer integer : iterator) {
 	...
 }
 ```
+This becomes vey consice in a Java 8 environment:
 
+```java
+Collection<Integer> values = ...;
+for (Integer integer : new ConvertingIterator(values, integer -> Integer.toString(integer))) {
+	...
+}
+```
+
+### Translator
+
+The [`Translator`][Translator] interface should be used by components that perform conversions on some values in both directions. It is an extension of [`Converter`][Converter].
+
+A [`Translator<From, To>`][Translator] needs to implement the following method:
+
+```java
+public To convert(From from) throws ConverterException
+
+public To revert(From from) throws ConverterException
+
+```
+
+Here is an example:
+
+
+```java
+Converter<UUID, String> uuidTranslator = new Translator<UUID, String>() {
+	@Override
+	public String convert(UUID uuid) {
+		return uuid.toString();
+	}
+	@Override
+	public UUID revert(String uuidString) throws ConverterException {
+		try{
+			return UUID.fromString(uuidString);
+		} catch (IllegalArgumentException e) {
+			throw new ConverterException(e);
+		}
+	}
+};
+```
 
 
 
