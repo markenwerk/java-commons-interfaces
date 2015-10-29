@@ -98,5 +98,5 @@ public interface Converter<From, To> {
 	 *             If the conversion failed.
 	 */
 	public To convert(From from) throws ConverterException;
-
+	
 }
