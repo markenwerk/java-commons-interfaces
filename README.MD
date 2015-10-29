@@ -1,4 +1,4 @@
-# A collection of common interfaces and base implementations for Java
+# A collection of common interfaces for Java
 
 ## Overview
 
