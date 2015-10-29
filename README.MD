@@ -32,7 +32,7 @@ This library provides a collection of interfaces that describe such common situa
 
 The [`Callback`][Callback] interface should be used by components that perform a costly (time-consuming) operation that will eventually yield a result; most likely, but not necessarily, in a multithreaded scenario.
 
-A [`Callback`][Callback]\<Result\> needs to implement the following method:
+A `[Callback][Callback]\<Result\>` needs to implement the following method:
 
 ```java
 public void onResult(Result result);
