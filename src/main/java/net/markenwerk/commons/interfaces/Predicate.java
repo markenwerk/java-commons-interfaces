@@ -25,10 +25,10 @@ import net.markenwerk.commons.interfaces.exceptions.PredicateException;
 
 /**
  * 
- * @author Torsten Krause (tk at markenwerk dot net)
- * @since 1.0.0
- *
  * @param <Subject>
+ *            The type of the values to perform tests on.
+ * @since 1.0.0
+ * @author Torsten Krause (tk at markenwerk dot net)
  */
 public interface Predicate<Subject> {
 

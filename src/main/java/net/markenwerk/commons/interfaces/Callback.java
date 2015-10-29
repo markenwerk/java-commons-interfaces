@@ -61,7 +61,7 @@ import java.lang.ref.WeakReference;
  * for the same result.
  * 
  * @param <Result>
- *            The result of the process.
+ *            The type of the result of the process.
  * @since 1.0.0
  * @author Torsten Krause (tk at markenwerk dot net)
  */

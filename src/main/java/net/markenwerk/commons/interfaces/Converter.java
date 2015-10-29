@@ -32,13 +32,11 @@ import net.markenwerk.commons.interfaces.exceptions.ConverterException;
  * Common use cases of a {@link Converter} include:
  * 
  * <ul>
- * <li>Conversion from a simple type into a more complex type.
- * 
- * <p>
+ * <li>Conversion from a simple type into a more complex type.<br>
  * 
  * <pre>
  *  Converter&lt;String, UUID&gt; uuidConverter = new Converter&lt;String, UUID&gt; () {
- *    &commat;Override
+ *    {@literal@}Override
  *    public UUID convert(String uuidString) throws ConverterException {
  *      try{
  *        return UUID.fromString(uuidString);
@@ -50,25 +48,24 @@ import net.markenwerk.commons.interfaces.exceptions.ConverterException;
  * </pre>
  * 
  * </li>
- * <li>Projection of a complex type to one of it's components.</li>
- * 
- * <p>
+ * <li>Projection of a complex type to one of it's components.<br>
  * 
  * <pre>
  * Converter&lt;Entity, Integer&gt; idConverter = new Converter&lt;Entity, Integer&gt; () {
- *   &commat;Override
+ *   {@literal@}Override
  *   public Integer convert(Entity entity) throws ConverterException {
  *     return entity.getId();
  *   }
  * };
  * </pre>
  * 
+ * </li>
  * </ul>
  * 
  * @param <From>
- *            Type to convert values from.
+ *            The type to convert values from.
  * @param <To>
- *            Type to convert values to.
+ *            The type to convert values to.
  * @since 1.0.0
  * @author Torsten Krause (tk at markenwerk dot net)
  * @see Translator

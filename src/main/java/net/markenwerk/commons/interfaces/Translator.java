@@ -32,13 +32,11 @@ import net.markenwerk.commons.interfaces.exceptions.ConverterException;
  * Common use cases of a {@link Converter} include:
  * 
  * <ul>
- * <li>Translation from a simple type into a more complex type and back.
- * 
- * <p>
+ * <li>Translation from a simple type into a more complex type and back.<br>
  * 
  * <pre>
  * Converter&lt;String, UUID&gt; uuidTranslator = new Translator&lt;String, UUID&gt; () {
- *   &commat;Override
+ *   {@literal@}Override
  *   public UUID convert(String uuidString) throws ConverterException {
  *     try{
  *       return UUID.fromString(uuidString);
@@ -47,7 +45,7 @@ import net.markenwerk.commons.interfaces.exceptions.ConverterException;
  *     }
  *   }
  *    
- *   &commat;Override
+ *   {@literal@}Override
  *   public String revert(UUID uuid) {
  *     return uuid.toString();
  *   }
@@ -55,18 +53,16 @@ import net.markenwerk.commons.interfaces.exceptions.ConverterException;
  * </pre>
  * 
  * </li>
- * <li>Projection of a complex type to one of it's key components and back.</li>
- * 
- * <p>
+ * <li>Projection of a complex type to one of it's key components and back.<br>
  * 
  * <pre>
  * Converter&lt;Entity, Integer&gt; idConverter = new Converter&lt;Entity, Integer&gt; () {
- *   &commat;Override
+ *   {@literal@}Override
  *   public Integer convert(Entity entity) throws ConverterException {
  *     return entity.getId();
  *   }
  *   
- *   &commat;Override
+ *   {@literal@}Override
  *   public Entity revert(Integer id) {
  *     try{
  *       return EntityDao.getById(id);
@@ -76,13 +72,13 @@ import net.markenwerk.commons.interfaces.exceptions.ConverterException;
  *   }
  * };
  * </pre>
- * 
+ * </li>
  * </ul>
  * 
  * @param <From>
- *            Type to translate values from and to.
+ *            The type to translate values from and to.
  * @param <To>
- *            Type to translate values to and from.
+ *            The type to translate values to and from.
  * @since 1.0.0
  * @author Torsten Krause (tk at markenwerk dot net)
  * @see Converter

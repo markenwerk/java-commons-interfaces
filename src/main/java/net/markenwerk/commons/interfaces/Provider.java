@@ -25,10 +25,12 @@ import net.markenwerk.commons.interfaces.exceptions.ProviderException;
 
 /**
  * 
- * @author Torsten Krause (tk at markenwerk dot net)
+ * @param <Specification>
+ *            The type of specification for the provided values.
+ * @param <Product>
+ *            The type of the provided values.
  * @since 1.0.0
- *
- * @param <Subject>
+ * @author Torsten Krause (tk at markenwerk dot net)
  */
 public interface Provider<Specification, Product> {
 
