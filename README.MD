@@ -38,18 +38,7 @@ A [`Callback<Result>`][Callback] needs to implement the following method:
 public void onResult(Result result);
 ```
 
-One common use case for a [`Callback`][Callback] is som service, that runs synchronously. Here is an example:
-
-```java
-final User user = ... 
-new GeocodingService().getLocation(user.getAddress, new Callback<Location>(){
-	@Override
-	public void onResult(Location location) {
-		user.getAddress().setLocation(location);
-		user.save();
-	}			
-});
-```
+One common use case for a [`Callback`][Callback] is som service, that runs synchronously.
 
 ### Predicate
 
@@ -61,30 +50,7 @@ A [`Predicate<Subject>`][Predicate] needs to implement the following method:
 public boolean test(Subject subject) throws PredicateException;
 ```
 
-One common use case for a [`Predicate`][Predicate] is some data provider, that wants to provide an elaborate API that can automatically filter the provided data. Here is an example:
-
-```java
-Collection<Integer> values = ...;
-FilteringIterator<Integer> iterator = new FilterIterator(values, new Predicate<Integer>() {
-
-	@Override
-	public boolean test(Integer integer) throws PredicateException {
-		return integer >= 0;
-	}
-});
-for (Integer integer : iterator) {
-	...
-}
-```
-
-This becomes vey consice in a Java 8 environment:
-
-```java
-Collection<Integer> values = ...;
-for (Integer integer : new FilterIterator(values, integer -> integer >= 0)) {
-	...
-}
-```
+One common use case for a [`Predicate`][Predicate] is some data provider, that wants to provide an elaborate API that can automatically filter the provided data.
 
 ### Converter and Translator
 
@@ -98,28 +64,7 @@ A [`Converter<From, To>`][Converter] needs to implement the following method:
 public To convert(From from) throws ConverterException
 ```
 
-One common use case for a [`Converter`][Converter] is some data provider, that wants to provide an elaborate API that can automatically convert the provided data. Here is an example:
-
-```java
-Collection<Integer> values = ...;
-ConvertingIterator<Integer, String> iterator = new ConvertingIterator(values, new Converter<Integer, String>() {
-	@Override
-	public boolean convert(Integer integer) throws PredicateException {
-		return Integer.toString(integer);
-	}
-});
-for (Integer integer : iterator) {
-	...
-}
-```
-This becomes vey consice in a Java 8 environment:
-
-```java
-Collection<Integer> values = ...;
-for (Integer integer : new ConvertingIterator(values, integer -> Integer.toString(integer))) {
-	...
-}
-```
+One common use case for a [`Converter`][Converter] is some data provider, that wants to provide an elaborate API that can automatically convert the provided data.
 
 ### Translator
 
@@ -133,27 +78,6 @@ public To convert(From from) throws ConverterException
 public To revert(From from) throws ConverterException
 
 ```
-
-Here is an example:
-
-
-```java
-Converter<UUID, String> uuidTranslator = new Translator<UUID, String>() {
-	@Override
-	public String convert(UUID uuid) {
-		return uuid.toString();
-	}
-	@Override
-	public UUID revert(String uuidString) throws ConverterException {
-		try{
-			return UUID.fromString(uuidString);
-		} catch (IllegalArgumentException e) {
-			throw new ConverterException(e);
-		}
-	}
-};
-```
-
 
 
 
