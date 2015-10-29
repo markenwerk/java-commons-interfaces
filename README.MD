@@ -32,7 +32,7 @@ This library provides a collection of interfaces that describe such common situa
 
 The [`Callback`][Callback] interface should be used by components that perform a costly (time-consuming) operation that will eventually yield a result; most likely, but not necessarily, in a multithreaded scenario.
 
-A [`Callback`][Callback]`\<Result\>` needs to implement the following method:
+A [`Callback<Result>`][Callback] needs to implement the following method:
 
 ```java
 public void onResult(Result result);
@@ -55,7 +55,7 @@ new GeocodingService().getLocation(user.getAddress, new Callback<Location>(){
 
 The [`Predicate`][Predicate] interface should be used by components that perform binary tests on some test subjects; most likely, but not necessarily, to filter a collection or stream if oncoming or outgoing test subjects.
 
-A [`Predicate`][Predicate]<Subject> needs to implement the following method:
+A [`Predicate<Subject>`][Predicate] needs to implement the following method:
 
 ```java
 public boolean test(Subject subject) throws PredicateException;
@@ -90,7 +90,7 @@ for (Integer integer : new FilterIterator(values, integer -> integer >= 0)) {
 
 The [`Converter`][Converter] interface should be used by components that perform conversions on some values; most likely, but not necessarily, to vonvert a collection or stream if oncoming or outgoing values.
 
-A [`Converter`][Converter]<From, To> needs to implement the following method:
+A [`Converter<From, To>`][Converter] needs to implement the following method:
 
 ```java
 public To convert(From from) throws ConverterException
