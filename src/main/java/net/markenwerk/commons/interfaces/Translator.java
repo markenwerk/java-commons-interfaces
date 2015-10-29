@@ -37,7 +37,7 @@ import net.markenwerk.commons.interfaces.exceptions.ConverterException;
  * <p>
  * 
  * <pre>
- * Converter<String, UUID> uuidTranslator = new Translator<String, UUID> () {
+ * Converter&lt;String, UUID&gt; uuidTranslator = new Translator&lt;String, UUID&gt; () {
  *   &commat;Override
  *   public UUID convert(String uuidString) throws ConverterException {
  *     try{
@@ -60,7 +60,7 @@ import net.markenwerk.commons.interfaces.exceptions.ConverterException;
  * <p>
  * 
  * <pre>
- * Converter<Entity, Integer> idConverter = new Converter<Entity, Integer> () {
+ * Converter&lt;Entity, Integer&gt; idConverter = new Converter&lt;Entity, Integer&gt; () {
  *   &commat;Override
  *   public Integer convert(Entity entity) throws ConverterException {
  *     return entity.getId();
