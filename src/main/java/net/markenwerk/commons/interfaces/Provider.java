@@ -21,17 +21,37 @@
  */
 package net.markenwerk.commons.interfaces;
 
-import net.markenwerk.commons.interfaces.exceptions.ProducerException;
+import net.markenwerk.commons.interfaces.exceptions.ProviderException;
 
 /**
  * 
  * @param <Product>
- *            The type of the values to be produced.
+ *            The type of the values to be provided.
  * @since 1.0.0
  * @author Torsten Krause (tk at markenwerk dot net)
  */
 public interface Provider<Product> {
 
-	public Product provide() throws ProducerException;
+	/**
+	 * Provides a product, which may be a costly operation.
+	 * 
+	 * <p>
+	 * Implementers may produce a new instance of the product, each time this
+	 * method is called or reuse an already provided instance.
+	 * 
+	 * <p>
+	 * It lies in the responsibility of the caller, to handle unwanted
+	 * {@literal null}-values by replacing them with a sensible default value or
+	 * throwing a {@link NullPointerException}.
+	 * 
+	 * <p>
+	 * Implementers should catch any exception and wrap them in a
+	 * {@link ProviderException}.
+	 * 
+	 * @return The provided product.
+	 * @throws ProviderException
+	 *             If the provisioning of the product failed.
+	 */
+	public Product provide() throws ProviderException;
 
 }

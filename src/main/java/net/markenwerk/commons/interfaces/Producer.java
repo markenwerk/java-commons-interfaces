@@ -32,6 +32,26 @@ import net.markenwerk.commons.interfaces.exceptions.ProducerException;
  */
 public interface Producer<Product> {
 
+	/**
+	 * Produces a new product. This may be a costly operation
+	 * 
+	 * <p>
+	 * Implementers must produce a new instance of the product, each time this
+	 * method is called.
+	 * 
+	 * <p>
+	 * It lies in the responsibility of the caller, to handle unwanted
+	 * {@literal null}-values by replacing them with a sensible default value or
+	 * throwing a {@link NullPointerException}.
+	 * 
+	 * <p>
+	 * Implementers should catch any exception and wrap them in a
+	 * {@link ProducerException}.
+	 * 
+	 * @return The produced product.
+	 * @throws ProducerException
+	 *             If the production of the product failed.
+	 */
 	public Product produce() throws ProducerException;
 
 }

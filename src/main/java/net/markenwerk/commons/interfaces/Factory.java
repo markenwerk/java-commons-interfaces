@@ -25,15 +25,38 @@ import net.markenwerk.commons.interfaces.exceptions.FactoryException;
 
 /**
  * 
- * @param <Order>
- *            The type of specification for the provided values.
+ * @param <ProductSpecification>
+ *            The type of specification for the produced values.
  * @param <Product>
  *            The type of the provided values.
  * @since 1.0.0
  * @author Torsten Krause (tk at markenwerk dot net)
  */
-public interface Factory<Order, Product> {
+public interface Factory<ProductSpecification, Product> {
 
-	public Product produce(Order order) throws FactoryException;
+	/**
+	 * Produces a new and custom made product that fulfills the given
+	 * specification. This may be a costly operation
+	 * 
+	 * <p>
+	 * Implementers must produce a new instance of the product, each time this
+	 * method is called.
+	 * 
+	 * <p>
+	 * It lies in the responsibility of the caller, to handle unwanted
+	 * {@literal null}-values by replacing them with a sensible default value or
+	 * throwing a {@link NullPointerException}.
+	 * 
+	 * <p>
+	 * Implementers should catch any exception and wrap them in a
+	 * {@link FactoryException}.
+	 * 
+	 * @param specification
+	 *            The specification to fulfill.
+	 * @return The produced product.
+	 * @throws FactoryException
+	 *             If the production of the product failed.
+	 */
+	public Product produce(ProductSpecification specification) throws FactoryException;
 
 }
