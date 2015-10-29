@@ -21,18 +21,16 @@
  */
 package net.markenwerk.commons.interfaces.exceptions;
 
-import net.markenwerk.commons.interfaces.CustomFactory;
 import net.markenwerk.commons.interfaces.Factory;
 
 /**
- * A {@code FactoryException} indicates that the production of an expected value
- * has failed.
+ * A {@code FactoryException} indicates that a {@link Factory} failed to produce
+ * a product.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)
  * @since 1.0.0
  * 
  * @see Factory
- * @see CustomFactory
  */
 public final class FactoryException extends RuntimeException {
 

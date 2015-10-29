@@ -24,7 +24,7 @@ package net.markenwerk.commons.interfaces.exceptions;
 import net.markenwerk.commons.interfaces.Predicate;
 
 /**
- * A {@code FactoryException} indicates that the evaluation of a
+ * A {@code PredicateException} indicates that the evaluation of a
  * {@code Predicate} has failed.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)

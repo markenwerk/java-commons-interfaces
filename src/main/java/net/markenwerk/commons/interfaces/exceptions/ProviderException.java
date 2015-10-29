@@ -21,12 +21,12 @@
  */
 package net.markenwerk.commons.interfaces.exceptions;
 
-import net.markenwerk.commons.interfaces.CustomFactory;
 import net.markenwerk.commons.interfaces.Factory;
+import net.markenwerk.commons.interfaces.Provider;
 
 /**
- * A {@code FactoryException} indicates that the provisioning of an expected
- * values has failed.
+ * A {@code ProviderException} indicates that a {@link Provider} failed to
+ * provide a product.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)
  * @since 1.0.0

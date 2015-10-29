@@ -21,8 +21,6 @@
  */
 package net.markenwerk.commons.interfaces.exceptions;
 
-import net.markenwerk.commons.callbacks.Lazy;
-
 /**
  * An {@code InitializationException} indicates that an arbitrary initialization
  * process has failed.
