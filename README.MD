@@ -70,16 +70,50 @@ One common use case for a [`Converter`][Converter] is some data provider, that w
 
 The [`Translator`][Translator] interface should be used by components that perform conversions on some values in both directions. It is an extension of [`Converter`][Converter].
 
-A [`Translator<From, To>`][Translator] needs to implement the following method:
+A [`Translator<From, To>`][Translator] needs to implement the following methods:
 
 ```java
 public To convert(From from) throws ConverterException
 
 public To revert(From from) throws ConverterException
-
 ```
 
+### Provider, Producer and Factory
 
+#### Provider
+
+The [`Provider`][Provider] interface should be used by components that may need a value that may be costly (time-consuming) to produce and don't wan't to enforce its creation prematurely.
+
+A [`Provider<Product>`][Provider] needs to implement the following method:
+
+```java
+public Product provide() throws ProviderException
+```
+
+A [`Provider`][Provider] may return the same instance for multiple invocations. Therefore, a [`Provider`][Provider] schouln't be used to provide stateful or consumable data.
+
+#### Producer
+
+The [`Producer`][Producer] interface should be used by components that needs a value (that is not suitable to be provided by a [`Provider`][Provider], i.e. because it is stateful) that may be costly (time-consuming) to produce and don't wan't to enforce its creation prematurely or by components that need multiple fresh instances of some value.
+
+A [`Producer<Product>`][Producer] needs to implement the following method:
+
+```java
+public Product produce() throws ProducerException
+```
+
+A [`Producer`][Producer] must return a new instance for every invocation.
+
+#### Factory
+
+The [`Factory`][Factory] interface should be used by components that need multiple fresh instances of some value and needs to specify some parameters of the produced values.
+
+A [`Factory<ProductSpecification, Product>`][Factory] needs to implement the following method:
+
+```java
+public Product produce(ProductSpecification specification) throws FactoryException
+```
+A [`Factory`][Factory] must return a new instance for every invocation.
 
 
 
