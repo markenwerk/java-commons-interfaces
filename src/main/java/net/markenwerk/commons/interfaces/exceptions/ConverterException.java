@@ -25,7 +25,7 @@ import net.markenwerk.commons.interfaces.Converter;
 import net.markenwerk.commons.interfaces.Translator;
 
 /**
- * A {@code ConverterException} indicates that an arbitrary conversion
+ * A {@link ConverterException} indicates that an arbitrary conversion
  * (transformation, translation, projection, evaluation, ...) has failed.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)
@@ -38,20 +38,20 @@ public final class ConverterException extends RuntimeException {
 	private static final long serialVersionUID = 8161906006366859761L;
 
 	/**
-	 * Constructs a {@code ConverterException} with the given message and cause.
+	 * Constructs a {@link ConverterException} with the given message and cause.
 	 * The given cause is chained to this exception.
 	 *
 	 * @param message
 	 *            The message.
 	 * @param cause
-	 *            The cause of this {@code ConverterException}.
+	 *            The cause of this {@link ConverterException}.
 	 */
 	public ConverterException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
 	/**
-	 * Constructs a {@code ConverterException} with the given message.
+	 * Constructs a {@link ConverterException} with the given message.
 	 *
 	 * @param message
 	 *            The message.
@@ -61,11 +61,11 @@ public final class ConverterException extends RuntimeException {
 	}
 
 	/**
-	 * Constructs a {@code ConverterException} with the given cause. The given
+	 * Constructs a {@link ConverterException} with the given cause. The given
 	 * cause is chained to this exception.
 	 *
 	 * @param cause
-	 *            The cause of this {@code ConverterException}.
+	 *            The cause of this {@link ConverterException}.
 	 */
 	public ConverterException(Throwable cause) {
 		super(cause);

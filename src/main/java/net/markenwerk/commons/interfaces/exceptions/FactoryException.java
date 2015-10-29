@@ -24,7 +24,7 @@ package net.markenwerk.commons.interfaces.exceptions;
 import net.markenwerk.commons.interfaces.Factory;
 
 /**
- * A {@code FactoryException} indicates that a {@link Factory} failed to produce
+ * A {@link FactoryException} indicates that a {@link Factory} failed to produce
  * a product.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)
@@ -37,20 +37,20 @@ public final class FactoryException extends RuntimeException {
 	private static final long serialVersionUID = -3338605809433552663L;
 
 	/**
-	 * Constructs a {@code FactoryException} with the given message and cause.
+	 * Constructs a {@link FactoryException} with the given message and cause.
 	 * The given cause is chained to this exception.
 	 *
 	 * @param message
 	 *            The message.
 	 * @param cause
-	 *            The cause of this {@code FactoryException}.
+	 *            The cause of this {@link FactoryException}.
 	 */
 	public FactoryException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
 	/**
-	 * Constructs a {@code FactoryException} with the given message.
+	 * Constructs a {@link FactoryException} with the given message.
 	 *
 	 * @param message
 	 *            The message.
@@ -60,11 +60,11 @@ public final class FactoryException extends RuntimeException {
 	}
 
 	/**
-	 * Constructs a {@code FactoryException} with the given cause. The given
+	 * Constructs a {@link FactoryException} with the given cause. The given
 	 * cause is chained to this exception.
 	 *
 	 * @param cause
-	 *            The cause of this {@code FactoryException}.
+	 *            The cause of this {@link FactoryException}.
 	 */
 	public FactoryException(Throwable cause) {
 		super(cause);

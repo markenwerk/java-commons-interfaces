@@ -24,8 +24,8 @@ package net.markenwerk.commons.interfaces.exceptions;
 import net.markenwerk.commons.interfaces.Predicate;
 
 /**
- * A {@code PredicateException} indicates that the evaluation of a
- * {@code Predicate} has failed.
+ * A {@link PredicateException} indicates that the evaluation of a
+ * {@link Predicate} has failed.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)
  * @since 1.0.0
@@ -37,20 +37,20 @@ public final class PredicateException extends RuntimeException {
 	private static final long serialVersionUID = -1717421532938676308L;
 
 	/**
-	 * Constructs a {@code PredicateException} with the given message and cause.
+	 * Constructs a {@link PredicateException} with the given message and cause.
 	 * The given cause is chained to this exception.
 	 *
 	 * @param message
 	 *            The message.
 	 * @param cause
-	 *            The cause of this {@code PredicateException}.
+	 *            The cause of this {@link PredicateException}.
 	 */
 	public PredicateException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
 	/**
-	 * Constructs a {@code PredicateException} with the given message.
+	 * Constructs a {@link PredicateException} with the given message.
 	 *
 	 * @param message
 	 *            The message.
@@ -60,11 +60,11 @@ public final class PredicateException extends RuntimeException {
 	}
 
 	/**
-	 * Constructs a {@code PredicateException} with the given cause. The given
+	 * Constructs a {@link PredicateException} with the given cause. The given
 	 * cause is chained to this exception.
 	 *
 	 * @param cause
-	 *            The cause of this {@code PredicateException}.
+	 *            The cause of this {@link PredicateException}.
 	 */
 	public PredicateException(Throwable cause) {
 		super(cause);

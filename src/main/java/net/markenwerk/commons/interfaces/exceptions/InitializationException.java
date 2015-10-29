@@ -22,7 +22,7 @@
 package net.markenwerk.commons.interfaces.exceptions;
 
 /**
- * An {@code InitializationException} indicates that an arbitrary initialization
+ * An {@link InitializationException} indicates that an arbitrary initialization
  * process has failed.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)
@@ -34,20 +34,20 @@ public final class InitializationException extends RuntimeException {
 	private static final long serialVersionUID = -3920845795407163207L;
 
 	/**
-	 * Constructs a {@code InitializationException} with the given message and
+	 * Constructs a {@link InitializationException} with the given message and
 	 * cause. The given cause is chained to this exception.
 	 *
 	 * @param message
 	 *            The message.
 	 * @param cause
-	 *            The cause of this {@code InitializationException}.
+	 *            The cause of this {@link InitializationException}.
 	 */
 	public InitializationException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
 	/**
-	 * Constructs a {@code InitializationException} with the given message.
+	 * Constructs a {@link InitializationException} with the given message.
 	 *
 	 * @param message
 	 *            The message.
@@ -57,11 +57,11 @@ public final class InitializationException extends RuntimeException {
 	}
 
 	/**
-	 * Constructs a {@code InitializationException} with the given cause. The
+	 * Constructs a {@link InitializationException} with the given cause. The
 	 * given cause is chained to this exception.
 	 *
 	 * @param cause
-	 *            The cause of this {@code InitializationException}.
+	 *            The cause of this {@link InitializationException}.
 	 */
 	public InitializationException(Throwable cause) {
 		super(cause);

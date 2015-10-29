@@ -25,17 +25,17 @@ import java.lang.ref.WeakReference;
 
 /**
  * For an arbitrary process, that will eventually yield a result, a
- * {@code Callback} is used, to convey that result from the executor of the
+ * {@link Callback} is used, to convey that result from the executor of the
  * process (hereafter: executor) back to the initiator of the process
  * (hereafter: initiator).
  * 
  * <p>
- * A {@code Callback} is most likely, but not necessarily, used in a
+ * A {@link Callback} is most likely, but not necessarily, used in a
  * multithreaded scenario.
  * 
  * <p>
  * Depending on the concrete scenario, the initiator may reuse the same instance
- * of {@code Callback} for multiple processes and even for the same executor,
+ * of {@link Callback} for multiple processes and even for the same executor,
  * although the letter is unusual.
  * 
  * <p>
@@ -45,16 +45,16 @@ import java.lang.ref.WeakReference;
  * <p>
  * One common exception to this rule is, when the executor can ensure, that the
  * result wont't be needed by the initiator, because the initiator itself is not
- * needed anymore. This is usually implemented by placing the {@code Callback}
+ * needed anymore. This is usually implemented by placing the {@link Callback}
  * in a {@link WeakReference}. This should be noted in the contract of the
- * method, that is used to convey the {@code Callback} to the executor, because
- * using anonymous instances of {@code Callback} will fail in this case.
+ * method, that is used to convey the {@link Callback} to the executor, because
+ * using anonymous instances of {@link Callback} will fail in this case.
  * 
  * <p>
  * The executor may call {@link Callback#onResult(Object)}, more than once,
  * depending o the concrete scenario, to convey partial or updated results. This
  * should be noted in the contract of the method, that is used to convey the
- * {@code Callback} to the executor.
+ * {@link Callback} to the executor.
  * 
  * <p>
  * The executor must not call {@link Callback#onResult(Object)} more than once

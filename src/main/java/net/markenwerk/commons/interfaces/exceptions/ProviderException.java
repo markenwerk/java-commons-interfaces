@@ -25,7 +25,7 @@ import net.markenwerk.commons.interfaces.Factory;
 import net.markenwerk.commons.interfaces.Provider;
 
 /**
- * A {@code ProviderException} indicates that a {@link Provider} failed to
+ * A {@link ProviderException} indicates that a {@link Provider} failed to
  * provide a product.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)
@@ -39,20 +39,20 @@ public final class ProviderException extends RuntimeException {
 	private static final long serialVersionUID = -8060847820853704214L;
 
 	/**
-	 * Constructs a {@code ProviderException} with the given message and cause.
+	 * Constructs a {@link ProviderException} with the given message and cause.
 	 * The given cause is chained to this exception.
 	 *
 	 * @param message
 	 *            The message.
 	 * @param cause
-	 *            The cause of this {@code ProviderException}.
+	 *            The cause of this {@link ProviderException}.
 	 */
 	public ProviderException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
 	/**
-	 * Constructs a {@code ProviderException} with the given message.
+	 * Constructs a {@link ProviderException} with the given message.
 	 *
 	 * @param message
 	 *            The message.
@@ -62,11 +62,11 @@ public final class ProviderException extends RuntimeException {
 	}
 
 	/**
-	 * Constructs a {@code ProviderException} with the given cause. The given
+	 * Constructs a {@link ProviderException} with the given cause. The given
 	 * cause is chained to this exception.
 	 *
 	 * @param cause
-	 *            The cause of this {@code ProviderException}.
+	 *            The cause of this {@link ProviderException}.
 	 */
 	public ProviderException(Throwable cause) {
 		super(cause);

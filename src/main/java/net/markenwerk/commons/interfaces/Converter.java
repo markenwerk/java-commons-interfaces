@@ -24,12 +24,12 @@ package net.markenwerk.commons.interfaces;
 import net.markenwerk.commons.interfaces.exceptions.ConverterException;
 
 /**
- * A {@code Converter} is used to convert (transform, translate, project,
+ * A {@link Converter} is used to convert (transform, translate, project,
  * evaluate, ...) values from one form into another. As such, a
- * {@code Converter} is little more than an arbitrary function.
+ * {@link Converter} is little more than an arbitrary function.
  * 
  * <p>
- * Common use cases of a {@code Converter} include:
+ * Common use cases of a {@link Converter} include:
  * 
  * <ul>
  * <li>Conversion from a simple type into a more complex type.
@@ -80,7 +80,7 @@ public interface Converter<From, To> {
 	 * 
 	 * <p>
 	 * Depending on the use case, if the given value {@literal null}, the
-	 * {@code Converter} should return {@code null}.
+	 * {@link Converter} should return {@literal null}.
 	 * 
 	 * <p>
 	 * It lies in the responsibility of the caller, to handle unwanted
