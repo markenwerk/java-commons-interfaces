@@ -21,30 +21,41 @@
  */
 package net.markenwerk.commons.interfaces;
 
-import java.io.InputStream;
+import java.util.Iterator;
 
 import net.markenwerk.commons.interfaces.exceptions.ProducerException;
 
 /**
- * A {@link Producer} may be used in situation where it is either not certain
- * that a value that is not suitable to be provided by a {@link Provider} (i.e.
- * because it is stateful) will be used or where multiple instances of the same
- * data (i.e. a subsystem that repeatedly consumes data that is provided as an
- * {@link InputStream} or a subsystem that needs an encryption key at arbitrary
- * times and wants to discard it after every use).
+ * A {@link Producer} produces values of the corresponding product type.
  * 
  * <p>
- * Implementers must produce a new instance of the product, each time this
- * method is called.
+ * Implementers must produce a new instance of the product, each time
+ * {@link Producer#produce()} is called.
+ * 
+ * <p>
+ * It is therefore okay to use {@link Producer Producers} for products that are
+ * stateful.
+ * 
+ * <p>
+ * {@link Producer Producers} are intended to be used in situatuation, where a
+ * mechanism to retreive a value is more desirable than having the value from
+ * the start and a {@link Provider} is not sufficient (i.e. because the product
+ * is stateful).
+ * 
+ * <p>
+ * {@link Producer Producers} ar espacially helpful, if it is likely that
+ * multiple instances of a stateful product will be used (i.e. multiple
+ * {@link Iterator Iterators} over the same underlying data). Another use case
+ * where a {@link Producer} may be more favourable than a {qlink Provider} is,
+ * if it is not desirable to keep the value in memory.
  * 
  * @param <Product>
  *            The type of the values to be produced.
  * @since 1.0.0
  * @author Torsten Krause (tk at markenwerk dot net)
- * @see Factory
  * @see Provider
  */
-public interface Producer<Product> {
+public interface Producer<Product> extends Provider<Product> {
 
 	/**
 	 * Produces a new product. This may be a costly operation

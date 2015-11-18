@@ -21,43 +21,61 @@
  */
 package net.markenwerk.commons.interfaces;
 
+import java.util.Iterator;
+
 import net.markenwerk.commons.interfaces.exceptions.ProviderException;
 
 /**
- * A {@link Provider} may be used in situation where it is not certain that a
- * value will be used, but the provisioning of the value may be costly (i.e. a
- * subsystem that may need some information which is usually stored in a file or
- * database).
+ * A {@link Provider} provides values of the corresponding product type.
  * 
- * A subsystem that requires access to a non-trivial value, but not necessarily
- * uses it, should ask for a {@code Provider} for that value, instead of the value
- * itself.
+ * <p>
+ * Implementers may provide a new instance of the product each time
+ * {@link Provider#provide()} is called, but aren't requiered to do so. An
+ * instance of the product that has already been returned once, may be returned
+ * again in any or all following calls.
  * 
- * Implementers may produce a new instance of the product, each time this method
- * is called or reuse an already provided instance (i.e. by referring to a
- * cache, whereby the provider holds the fixed lookup key, or by storing a
- * reference to the value, once it has been resolved), but every provided object
- * must be equal to any previously provided value.
+ * <p>
+ * It is therefore not recommended to use {@link Provider Provides} for products
+ * that are stateful unless the internal state of a values doesn't change the
+ * value. It is therefore okay to use {@link String} as the product type,
+ * although instances are stateful ({@link String} instances store their hash
+ * value after it has been calculated for the first time and are therefore
+ * technically stateful), but it is not okay to use {@link Iterator} as the
+ * product type, because every call to {@link Iterator#next()} actually changes
+ * the {@link Iterator} instance.
  * 
- * A {@code Provider} should only be used to provide stateless values,
- * especially, if those values can only be consumed once. For those situations,
- * it may be more appropriate to use a {@link Producer}.
+ * <p>
+ * {@link Provider Providers} are intended to be used in situatuation, where a
+ * mechanism to retreive a value is more desirable than having the value from
+ * the start. Theese are usually, but not necessarily, situations where the
+ * following two conditions are met.
+ * 
+ * <ul>
+ * <li>It is not certein that the value will be used.</li>
+ * <li>It is likeley that it is a costly operation to create the value.</li>
+ * </ul>
+ * 
+ * <p>
+ * The second condition may only be true for the first call to
+ * {@link Provider#provide()} since {@link Provider Providers} are allowed to
+ * cache and reuse the value.
  * 
  * @param <Product>
  *            The type of the values to be provided.
  * @since 1.0.0
  * @author Torsten Krause (tk at markenwerk dot net)
- * @see Factory
  * @see Producer
  */
 public interface Provider<Product> {
 
 	/**
-	 * Provides a product, which may be a costly operation.
+	 * Provides a product, This may be a costly operation.
 	 * 
 	 * <p>
-	 * Implementers may produce a new instance of the product, each time this
-	 * method is called or reuse an already provided instance.
+	 * Implementers may provide a new instance of the product each time this
+	 * method is called, but aren't requiered to do so. An instance of the
+	 * product that has already been returned once, may be returned again in any
+	 * or all following calls.
 	 * 
 	 * <p>
 	 * It lies in the responsibility of the caller, to handle unwanted
