@@ -8,17 +8,17 @@ This is a collection of some common interfaces that describe everyday use cases.
 
 ## Overview
 
-This library is hosted in the [Maven Central Repositoy](http://search.maven.org/#artifactdetails|net.markenwerk|commons-interfaces|1.0.0|jar). You can use it with the following coordinates:
+This library is hosted in the [Maven Central Repositoy](http://search.maven.org/#artifactdetails|net.markenwerk|commons-interfaces|2.0.0|jar). You can use it with the following coordinates:
 
 ```xml
 <dependency>
 	<groupId>net.markenwerk</groupId>
 	<artifactId>commons-interfaces</artifactId>
-	<version>1.0.0</version>
+	<version>2.0.0</version>
 </dependency>
 ```
 
-Consult the [description](#interfaces) and [Javadoc](http://markenwerk.github.io/java-commons-interfaces/javadoc/1.0.0/index.html) for further information.
+Consult the [description](#interfaces) and [Javadoc](http://markenwerk.github.io/java-commons-interfaces/javadoc/2.0.0/index.html) for further information.
 
 ## Motivation
 
