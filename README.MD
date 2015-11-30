@@ -22,7 +22,7 @@ Consult the [description](#interfaces) and [Javadoc](http://markenwerk.github.io
 
 ## Motivation
 
-Some interfaces, especially [functional interfaces](https://docs.oracle.com/javase/8/docs/api/java/lang/FunctionalInterface.html), are - by there nature - generic enough to describe a very broad field of situation. The Java standard API doesn't provide such interfaces, but some of the standard interfaces are used in a generic way. This is especially true for [`Runnable`][Runnable], which is used in event queues everywhere, although it has very specific semantics in relation to [`Thread`][Thread]. On the other hand, it wouldn't be very useful to create new interfaces with a similar signature, particularly because `Runnable` is already a very concise and descriptive name. 
+Some interfaces, especially [functional interfaces](https://docs.oracle.com/javase/8/docs/api/java/lang/FunctionalInterface.html), are - by there nature - generic enough to describe a very broad field of situation. The Java standard API doesn't provide such interfaces, but some of the standard interfaces are used in a generic way. This is especially true for [`Runnable`][Runnable], which is used in event queues everywhere, although it has very specific semantics in relation to [`Thread`][Thread]. On the other hand, it wouldn't be very useful to create new interfaces with a similar signature, particularly because [`Runnable`][Runnable] is already a very concise and descriptive name. 
 
 A well chosen, concise and descriptive name reduces the necessity for a bulky method documentation, so even in an Java 8 environment, it may be better to use such interfaces, instead of a generic [`Function`][Function] parameters.
 
@@ -107,11 +107,11 @@ public Product provide() throws ProvisioningException
 
 A [`Provider`][Provider] should wrap every exception in an [`ProvisioningException`][ProvisioningException]. A [`Provider`][Provider] may return the same instance for multiple invocations. Therefore, a [`Provider`][Provider] schouln't be used to provide stateful or consumable data.
 
-#### Customized Provider
+#### Customizing Provider
 
-The [`CustomizedProvider`][CustomizedProvider] interface should be used when a simple [`Provider`][Provider] is not sufficient, because it is neccessary to obtain customized (e.g. localized) values.
+The [`CustomizingProvider`][CustomizingProvider] interface should be used when a simple [`Provider`][Provider] is not sufficient, because it is neccessary to obtain customized (e.g. localized) values.
 
-A [`CustomizedProvider<Customization, Product>`][CustomizedProvider] needs to implement the following method:
+A [`CustomizingProvider<Customization, Product>`][CustomizingProvider] needs to implement the following method:
 
 ```java
 public Product provide(Customization customization) throws ProvisioningException
@@ -131,12 +131,12 @@ public Product produce() throws ProductionException
 
 A [`Producer`][Producer] should wrap every exception in an [`ProductionException`][ProductionException]. A [`Producer`][Producer] must return a new instance for every invocation.
 
-#### Customized Producer
+#### Customizing Producer
 
-The [`CustomizedProducer`][CustomizedProducer] interface should be used when a simple [`Producer`][Producer] is not sufficient, because it is neccessary to obtain customized (e.g. localized) values.
+The [`CustomizingProducer`][CustomizingProducer] interface should be used when a simple [`Producer`][Producer] is not sufficient, because it is neccessary to obtain customized (e.g. localized) values.
 
 
-A [`CustomizedProducer<Customization, Product>`][CustomizedCustomized] needs to implement the following method:
+A [`CustomizingProducer<Customization, Product>`][CustomizingCustomizing] needs to implement the following method:
 
 ```java
 public Product produce(Customization customization) throws ProductionException
@@ -144,8 +144,8 @@ public Product produce(Customization customization) throws ProductionException
 
 [Callback]: http://markenwerk.github.io/java-commons-interfaces/javadoc/2.0.0/index.html?net/markenwerk/commons/interfaces/Callback.html
 [Converter]: http://markenwerk.github.io/java-commons-interfaces/javadoc/2.0.0/index.html?net/markenwerk/commons/interfaces/Converter.html
-[CustomizedProducer]: http://markenwerk.github.io/java-commons-interfaces/javadoc/2.0.0/index.html?net/markenwerk/commons/interfaces/CustomizedProducer.html
-[CustomizedProvider]: http://markenwerk.github.io/java-commons-interfaces/javadoc/2.0.0/index.html?net/markenwerk/commons/interfaces/CustomizedProvider.html
+[CustomizingProducer]: http://markenwerk.github.io/java-commons-interfaces/javadoc/2.0.0/index.html?net/markenwerk/commons/interfaces/CustomizingProducer.html
+[CustomizingProvider]: http://markenwerk.github.io/java-commons-interfaces/javadoc/2.0.0/index.html?net/markenwerk/commons/interfaces/CustomizingProvider.html
 [Predicate]: http://markenwerk.github.io/java-commons-interfaces/javadoc/2.0.0/index.html?net/markenwerk/commons/interfaces/Predicate.html
 [Producer]: http://markenwerk.github.io/java-commons-interfaces/javadoc/2.0.0/index.html?net/markenwerk/commons/interfaces/Producer.html
 [Provider]: http://markenwerk.github.io/java-commons-interfaces/javadoc/2.0.0/index.html?net/markenwerk/commons/interfaces/Provider.html
