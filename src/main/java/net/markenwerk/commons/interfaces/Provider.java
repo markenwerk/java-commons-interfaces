@@ -23,7 +23,7 @@ package net.markenwerk.commons.interfaces;
 
 import java.util.Iterator;
 
-import net.markenwerk.commons.interfaces.exceptions.ProvisioningException;
+import net.markenwerk.commons.exceptions.ProvisioningException;
 
 /**
  * A {@link Provider} provides values of the corresponding product type.

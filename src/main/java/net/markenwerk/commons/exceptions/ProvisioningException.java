@@ -19,54 +19,54 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package net.markenwerk.commons.interfaces.exceptions;
+package net.markenwerk.commons.exceptions;
 
-import net.markenwerk.commons.interfaces.Predicate;
+import net.markenwerk.commons.interfaces.Provider;
 
 /**
- * A {@link EvaluationException} indicates that the evaluation of a
- * {@link Predicate} has failed.
+ * A {@link ProvisioningException} indicates that a {@link Provider} failed to
+ * provide a product.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)
  * @since 1.0.0
  * 
- * @see Predicate
+ * @see Provider
  */
-public final class EvaluationException extends RuntimeException {
+public final class ProvisioningException extends RuntimeException {
 
-	private static final long serialVersionUID = -1717421532938676308L;
+	private static final long serialVersionUID = -8060847820853704214L;
 
 	/**
-	 * Constructs a {@link EvaluationException} with the given message and cause.
+	 * Constructs a {@link ProvisioningException} with the given message and cause.
 	 * The given cause is chained to this exception.
 	 *
 	 * @param message
 	 *            The message.
 	 * @param cause
-	 *            The cause of this {@link EvaluationException}.
+	 *            The cause of this {@link ProvisioningException}.
 	 */
-	public EvaluationException(String message, Throwable cause) {
+	public ProvisioningException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
 	/**
-	 * Constructs a {@link EvaluationException} with the given message.
+	 * Constructs a {@link ProvisioningException} with the given message.
 	 *
 	 * @param message
 	 *            The message.
 	 */
-	public EvaluationException(String message) {
+	public ProvisioningException(String message) {
 		super(message);
 	}
 
 	/**
-	 * Constructs a {@link EvaluationException} with the given cause. The given
+	 * Constructs a {@link ProvisioningException} with the given cause. The given
 	 * cause is chained to this exception.
 	 *
 	 * @param cause
-	 *            The cause of this {@link EvaluationException}.
+	 *            The cause of this {@link ProvisioningException}.
 	 */
-	public EvaluationException(Throwable cause) {
+	public ProvisioningException(Throwable cause) {
 		super(cause);
 	}
 

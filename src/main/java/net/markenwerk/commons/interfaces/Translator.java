@@ -21,7 +21,7 @@
  */
 package net.markenwerk.commons.interfaces;
 
-import net.markenwerk.commons.interfaces.exceptions.ConversionException;
+import net.markenwerk.commons.exceptions.ConversionException;
 
 /**
  * A {@link Translator} is used to convert (transform, translate, project,

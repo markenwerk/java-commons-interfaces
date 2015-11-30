@@ -19,54 +19,55 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package net.markenwerk.commons.interfaces.exceptions;
+package net.markenwerk.commons.exceptions;
 
-import net.markenwerk.commons.interfaces.Producer;
+import net.markenwerk.commons.interfaces.Converter;
+import net.markenwerk.commons.interfaces.Translator;
 
 /**
- * A {@link ProductionException} indicates that a {@link Producer} failed to
- * produce a product.
+ * A {@link ConversionException} indicates that an arbitrary conversion
+ * (transformation, translation, projection, evaluation, ...) has failed.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)
  * @since 1.0.0
- * 
- * @see Producer
+ * @see Converter
+ * @see Translator
  */
-public final class ProductionException extends RuntimeException {
+public final class ConversionException extends RuntimeException {
 
-	private static final long serialVersionUID = 8658949883506215155L;
+	private static final long serialVersionUID = 8161906006366859761L;
 
 	/**
-	 * Constructs a {@link ProductionException} with the given message and cause.
+	 * Constructs a {@link ConversionException} with the given message and cause.
 	 * The given cause is chained to this exception.
 	 *
 	 * @param message
 	 *            The message.
 	 * @param cause
-	 *            The cause of this {@link ProductionException}.
+	 *            The cause of this {@link ConversionException}.
 	 */
-	public ProductionException(String message, Throwable cause) {
+	public ConversionException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
 	/**
-	 * Constructs a {@link ProductionException} with the given message.
+	 * Constructs a {@link ConversionException} with the given message.
 	 *
 	 * @param message
 	 *            The message.
 	 */
-	public ProductionException(String message) {
+	public ConversionException(String message) {
 		super(message);
 	}
 
 	/**
-	 * Constructs a {@link ProductionException} with the given cause. The given
+	 * Constructs a {@link ConversionException} with the given cause. The given
 	 * cause is chained to this exception.
 	 *
 	 * @param cause
-	 *            The cause of this {@link ProductionException}.
+	 *            The cause of this {@link ConversionException}.
 	 */
-	public ProductionException(Throwable cause) {
+	public ConversionException(Throwable cause) {
 		super(cause);
 	}
 

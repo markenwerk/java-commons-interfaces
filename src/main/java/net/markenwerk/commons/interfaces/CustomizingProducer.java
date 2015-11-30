@@ -23,7 +23,7 @@ package net.markenwerk.commons.interfaces;
 
 import java.util.Iterator;
 
-import net.markenwerk.commons.interfaces.exceptions.ProductionException;
+import net.markenwerk.commons.exceptions.ProductionException;
 
 /**
  * A {@link CustomizingProducer} produces customized values of the corresponding

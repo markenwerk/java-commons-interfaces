@@ -21,7 +21,7 @@
  */
 package net.markenwerk.commons.interfaces;
 
-import net.markenwerk.commons.interfaces.exceptions.EvaluationException;
+import net.markenwerk.commons.exceptions.EvaluationException;
 
 /**
  * A {@link Predicate} is used to perform arbitrary test on test subject. It is
