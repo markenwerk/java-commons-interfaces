@@ -32,12 +32,12 @@ import net.markenwerk.commons.interfaces.exceptions.ProvisioningException;
  * Implementers may provide a new instance of the product each time
  * {@link Provider#provide()} is called, but aren't requiered to do so. An
  * instance of the product that has already been returned once, may be returned
- * again in any or all following calls.
+ * again for any or all following calls.
  * 
  * <p>
  * It is therefore not recommended to use {@link Provider Provides} for products
  * that are stateful unless the internal state of a values doesn't change the
- * value. It is therefore okay to use {@link String} as the product type,
+ * value. It is for example okay to use {@link String} as the product type,
  * although instances are stateful ({@link String} instances store their hash
  * value after it has been calculated for the first time and are therefore
  * technically stateful), but it is not okay to use {@link Iterator} as the
