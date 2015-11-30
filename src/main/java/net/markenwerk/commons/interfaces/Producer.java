@@ -23,7 +23,7 @@ package net.markenwerk.commons.interfaces;
 
 import java.util.Iterator;
 
-import net.markenwerk.commons.interfaces.exceptions.ProducerException;
+import net.markenwerk.commons.interfaces.exceptions.ProductionException;
 
 /**
  * A {@link Producer} produces values of the corresponding product type.
@@ -71,12 +71,12 @@ public interface Producer<Product> extends Provider<Product> {
 	 * 
 	 * <p>
 	 * Implementers should catch any exception and wrap them in a
-	 * {@link ProducerException}.
+	 * {@link ProductionException}.
 	 * 
 	 * @return The produced product.
-	 * @throws ProducerException
+	 * @throws ProductionException
 	 *             If the production of the product failed.
 	 */
-	public Product produce() throws ProducerException;
+	public Product produce() throws ProductionException;
 
 }

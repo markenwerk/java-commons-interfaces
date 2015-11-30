@@ -21,7 +21,7 @@
  */
 package net.markenwerk.commons.interfaces;
 
-import net.markenwerk.commons.interfaces.exceptions.PredicateException;
+import net.markenwerk.commons.interfaces.exceptions.EvaluationException;
 
 /**
  * A {@link Predicate} is used to perform arbitrary test on test subject. It is
@@ -46,14 +46,14 @@ public interface Predicate<Subject> {
 	 * 
 	 * <p>
 	 * Implementers should catch any exception and wrap them in a
-	 * {@link PredicateException}.
+	 * {@link EvaluationException}.
 	 * 
 	 * @param subject
 	 *            The test subject.
 	 * @return Whether the test subject passed the test.
-	 * @throws PredicateException
+	 * @throws EvaluationException
 	 *             If testing the test subject failed.
 	 */
-	public boolean test(Subject subject) throws PredicateException;
+	public boolean test(Subject subject) throws EvaluationException;
 
 }

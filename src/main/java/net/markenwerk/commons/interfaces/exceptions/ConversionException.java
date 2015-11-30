@@ -21,52 +21,53 @@
  */
 package net.markenwerk.commons.interfaces.exceptions;
 
-import net.markenwerk.commons.interfaces.Producer;
+import net.markenwerk.commons.interfaces.Converter;
+import net.markenwerk.commons.interfaces.Translator;
 
 /**
- * A {@link ProducerException} indicates that a {@link Producer} failed to
- * produce a product.
+ * A {@link ConversionException} indicates that an arbitrary conversion
+ * (transformation, translation, projection, evaluation, ...) has failed.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)
  * @since 1.0.0
- * 
- * @see Producer
+ * @see Converter
+ * @see Translator
  */
-public final class ProducerException extends RuntimeException {
+public final class ConversionException extends RuntimeException {
 
-	private static final long serialVersionUID = 8658949883506215155L;
+	private static final long serialVersionUID = 8161906006366859761L;
 
 	/**
-	 * Constructs a {@link ProducerException} with the given message and cause.
+	 * Constructs a {@link ConversionException} with the given message and cause.
 	 * The given cause is chained to this exception.
 	 *
 	 * @param message
 	 *            The message.
 	 * @param cause
-	 *            The cause of this {@link ProducerException}.
+	 *            The cause of this {@link ConversionException}.
 	 */
-	public ProducerException(String message, Throwable cause) {
+	public ConversionException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
 	/**
-	 * Constructs a {@link ProducerException} with the given message.
+	 * Constructs a {@link ConversionException} with the given message.
 	 *
 	 * @param message
 	 *            The message.
 	 */
-	public ProducerException(String message) {
+	public ConversionException(String message) {
 		super(message);
 	}
 
 	/**
-	 * Constructs a {@link ProducerException} with the given cause. The given
+	 * Constructs a {@link ConversionException} with the given cause. The given
 	 * cause is chained to this exception.
 	 *
 	 * @param cause
-	 *            The cause of this {@link ProducerException}.
+	 *            The cause of this {@link ConversionException}.
 	 */
-	public ProducerException(Throwable cause) {
+	public ConversionException(Throwable cause) {
 		super(cause);
 	}
 

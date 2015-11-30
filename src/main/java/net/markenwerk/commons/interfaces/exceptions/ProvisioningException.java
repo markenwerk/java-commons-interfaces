@@ -24,7 +24,7 @@ package net.markenwerk.commons.interfaces.exceptions;
 import net.markenwerk.commons.interfaces.Provider;
 
 /**
- * A {@link ProviderException} indicates that a {@link Provider} failed to
+ * A {@link ProvisioningException} indicates that a {@link Provider} failed to
  * provide a product.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)
@@ -32,41 +32,41 @@ import net.markenwerk.commons.interfaces.Provider;
  * 
  * @see Provider
  */
-public final class ProviderException extends RuntimeException {
+public final class ProvisioningException extends RuntimeException {
 
 	private static final long serialVersionUID = -8060847820853704214L;
 
 	/**
-	 * Constructs a {@link ProviderException} with the given message and cause.
+	 * Constructs a {@link ProvisioningException} with the given message and cause.
 	 * The given cause is chained to this exception.
 	 *
 	 * @param message
 	 *            The message.
 	 * @param cause
-	 *            The cause of this {@link ProviderException}.
+	 *            The cause of this {@link ProvisioningException}.
 	 */
-	public ProviderException(String message, Throwable cause) {
+	public ProvisioningException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
 	/**
-	 * Constructs a {@link ProviderException} with the given message.
+	 * Constructs a {@link ProvisioningException} with the given message.
 	 *
 	 * @param message
 	 *            The message.
 	 */
-	public ProviderException(String message) {
+	public ProvisioningException(String message) {
 		super(message);
 	}
 
 	/**
-	 * Constructs a {@link ProviderException} with the given cause. The given
+	 * Constructs a {@link ProvisioningException} with the given cause. The given
 	 * cause is chained to this exception.
 	 *
 	 * @param cause
-	 *            The cause of this {@link ProviderException}.
+	 *            The cause of this {@link ProvisioningException}.
 	 */
-	public ProviderException(Throwable cause) {
+	public ProvisioningException(Throwable cause) {
 		super(cause);
 	}
 

@@ -21,7 +21,7 @@
  */
 package net.markenwerk.commons.interfaces;
 
-import net.markenwerk.commons.interfaces.exceptions.ConverterException;
+import net.markenwerk.commons.interfaces.exceptions.ConversionException;
 
 /**
  * A {@link Converter} is used to convert (transform, translate, project,
@@ -89,14 +89,14 @@ public interface Converter<From, To> {
 	 * 
 	 * <p>
 	 * Implementers should catch any exception and wrap them in a
-	 * {@link ConverterException}.
+	 * {@link ConversionException}.
 	 * 
 	 * @param from
 	 *            The value to be converted.
 	 * @return The converted value.
-	 * @throws ConverterException
+	 * @throws ConversionException
 	 *             If the conversion failed.
 	 */
-	public To convert(From from) throws ConverterException;
+	public To convert(From from) throws ConversionException;
 	
 }

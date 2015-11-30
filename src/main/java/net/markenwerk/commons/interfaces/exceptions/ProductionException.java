@@ -21,52 +21,52 @@
  */
 package net.markenwerk.commons.interfaces.exceptions;
 
-import net.markenwerk.commons.interfaces.Predicate;
+import net.markenwerk.commons.interfaces.Producer;
 
 /**
- * A {@link PredicateException} indicates that the evaluation of a
- * {@link Predicate} has failed.
+ * A {@link ProductionException} indicates that a {@link Producer} failed to
+ * produce a product.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)
  * @since 1.0.0
  * 
- * @see Predicate
+ * @see Producer
  */
-public final class PredicateException extends RuntimeException {
+public final class ProductionException extends RuntimeException {
 
-	private static final long serialVersionUID = -1717421532938676308L;
+	private static final long serialVersionUID = 8658949883506215155L;
 
 	/**
-	 * Constructs a {@link PredicateException} with the given message and cause.
+	 * Constructs a {@link ProductionException} with the given message and cause.
 	 * The given cause is chained to this exception.
 	 *
 	 * @param message
 	 *            The message.
 	 * @param cause
-	 *            The cause of this {@link PredicateException}.
+	 *            The cause of this {@link ProductionException}.
 	 */
-	public PredicateException(String message, Throwable cause) {
+	public ProductionException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
 	/**
-	 * Constructs a {@link PredicateException} with the given message.
+	 * Constructs a {@link ProductionException} with the given message.
 	 *
 	 * @param message
 	 *            The message.
 	 */
-	public PredicateException(String message) {
+	public ProductionException(String message) {
 		super(message);
 	}
 
 	/**
-	 * Constructs a {@link PredicateException} with the given cause. The given
+	 * Constructs a {@link ProductionException} with the given cause. The given
 	 * cause is chained to this exception.
 	 *
 	 * @param cause
-	 *            The cause of this {@link PredicateException}.
+	 *            The cause of this {@link ProductionException}.
 	 */
-	public PredicateException(Throwable cause) {
+	public ProductionException(Throwable cause) {
 		super(cause);
 	}
 

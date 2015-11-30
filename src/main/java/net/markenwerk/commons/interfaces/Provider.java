@@ -23,7 +23,7 @@ package net.markenwerk.commons.interfaces;
 
 import java.util.Iterator;
 
-import net.markenwerk.commons.interfaces.exceptions.ProviderException;
+import net.markenwerk.commons.interfaces.exceptions.ProvisioningException;
 
 /**
  * A {@link Provider} provides values of the corresponding product type.
@@ -84,12 +84,12 @@ public interface Provider<Product> {
 	 * 
 	 * <p>
 	 * Implementers should catch any exception and wrap them in a
-	 * {@link ProviderException}.
+	 * {@link ProvisioningException}.
 	 * 
 	 * @return The provided product.
-	 * @throws ProviderException
+	 * @throws ProvisioningException
 	 *             If the provisioning of the product failed.
 	 */
-	public Product provide() throws ProviderException;
+	public Product provide() throws ProvisioningException;
 
 }

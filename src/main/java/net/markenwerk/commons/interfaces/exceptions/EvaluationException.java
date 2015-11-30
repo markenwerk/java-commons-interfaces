@@ -21,53 +21,52 @@
  */
 package net.markenwerk.commons.interfaces.exceptions;
 
-import net.markenwerk.commons.interfaces.Converter;
-import net.markenwerk.commons.interfaces.Translator;
+import net.markenwerk.commons.interfaces.Predicate;
 
 /**
- * A {@link ConverterException} indicates that an arbitrary conversion
- * (transformation, translation, projection, evaluation, ...) has failed.
+ * A {@link EvaluationException} indicates that the evaluation of a
+ * {@link Predicate} has failed.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)
  * @since 1.0.0
- * @see Converter
- * @see Translator
+ * 
+ * @see Predicate
  */
-public final class ConverterException extends RuntimeException {
+public final class EvaluationException extends RuntimeException {
 
-	private static final long serialVersionUID = 8161906006366859761L;
+	private static final long serialVersionUID = -1717421532938676308L;
 
 	/**
-	 * Constructs a {@link ConverterException} with the given message and cause.
+	 * Constructs a {@link EvaluationException} with the given message and cause.
 	 * The given cause is chained to this exception.
 	 *
 	 * @param message
 	 *            The message.
 	 * @param cause
-	 *            The cause of this {@link ConverterException}.
+	 *            The cause of this {@link EvaluationException}.
 	 */
-	public ConverterException(String message, Throwable cause) {
+	public EvaluationException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
 	/**
-	 * Constructs a {@link ConverterException} with the given message.
+	 * Constructs a {@link EvaluationException} with the given message.
 	 *
 	 * @param message
 	 *            The message.
 	 */
-	public ConverterException(String message) {
+	public EvaluationException(String message) {
 		super(message);
 	}
 
 	/**
-	 * Constructs a {@link ConverterException} with the given cause. The given
+	 * Constructs a {@link EvaluationException} with the given cause. The given
 	 * cause is chained to this exception.
 	 *
 	 * @param cause
-	 *            The cause of this {@link ConverterException}.
+	 *            The cause of this {@link EvaluationException}.
 	 */
-	public ConverterException(Throwable cause) {
+	public EvaluationException(Throwable cause) {
 		super(cause);
 	}
 
