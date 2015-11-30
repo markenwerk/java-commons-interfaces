@@ -31,7 +31,7 @@ import net.markenwerk.commons.exceptions.ProvisioningException;
  * 
  * <p>
  * Implementers may provide a new instance of the product each time
- * {@link CustomizingProvider#provide()} is called, but aren't requiered to do
+ * {@link CustomizingProvider#provide(Object)} is called, but aren't requiered to do
  * so. An instance of the product that has already been returned once, may be
  * returned again for any or all following calls.
  * 
@@ -58,7 +58,7 @@ import net.markenwerk.commons.exceptions.ProvisioningException;
  * 
  * <p>
  * The second condition may only be true for the first call to
- * {@link CustomizingProvider#provide()} since {@link CustomizingProvider
+ * {@link CustomizingProvider#provide(Object)} since {@link CustomizingProvider
  * Providers} are allowed to cache and reuse the value.
  * 
  * @param <Customization>

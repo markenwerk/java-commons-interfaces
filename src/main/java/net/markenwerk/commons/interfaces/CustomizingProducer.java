@@ -31,7 +31,7 @@ import net.markenwerk.commons.exceptions.ProductionException;
  * 
  * <p>
  * Implementers must produce a new instance of the product, each time
- * {@link CustomizingProducer#produce()} is called.
+ * {@link CustomizingProducer#produce(Object)} is called.
  * 
  * <p>
  * It is therefore okay to use {@link CustomizingProducer Producers} for
