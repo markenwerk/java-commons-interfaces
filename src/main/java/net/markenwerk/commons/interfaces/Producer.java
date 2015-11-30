@@ -55,7 +55,7 @@ import net.markenwerk.commons.interfaces.exceptions.ProductionException;
  * @author Torsten Krause (tk at markenwerk dot net)
  * @see Provider
  */
-public interface Producer<Product> extends Provider<Product> {
+public interface Producer<Product>  {
 
 	/**
 	 * Produces a new product. This may be a costly operation
