@@ -18,7 +18,7 @@ This library is hosted in the [Maven Central Repositoy](http://search.maven.org/
 </dependency>
 ```
 
-Consult the [description](#interfaces) and [Javadoc](http://markenwerk.github.io/java-commons-interfaces/javadoc/2.0.0/index.html) for further information.
+Consult the [description](#interfaces) and [Javadoc](http://static.javadoc.io/net.markenwerk/commons-interfaces/2.0.0/index.html) for further information.
 
 ## Motivation
 
@@ -142,19 +142,19 @@ A [`CustomizingProducer<Customization, Product>`][CustomizingCustomizing] needs 
 public Product produce(Customization customization) throws ProductionException
 ```
 
-[Callback]: http://markenwerk.github.io/java-commons-interfaces/javadoc/2.0.0/index.html?net/markenwerk/commons/interfaces/Callback.html
-[Converter]: http://markenwerk.github.io/java-commons-interfaces/javadoc/2.0.0/index.html?net/markenwerk/commons/interfaces/Converter.html
-[CustomizingProducer]: http://markenwerk.github.io/java-commons-interfaces/javadoc/2.0.0/index.html?net/markenwerk/commons/interfaces/CustomizingProducer.html
-[CustomizingProvider]: http://markenwerk.github.io/java-commons-interfaces/javadoc/2.0.0/index.html?net/markenwerk/commons/interfaces/CustomizingProvider.html
-[Predicate]: http://markenwerk.github.io/java-commons-interfaces/javadoc/2.0.0/index.html?net/markenwerk/commons/interfaces/Predicate.html
-[Producer]: http://markenwerk.github.io/java-commons-interfaces/javadoc/2.0.0/index.html?net/markenwerk/commons/interfaces/Producer.html
-[Provider]: http://markenwerk.github.io/java-commons-interfaces/javadoc/2.0.0/index.html?net/markenwerk/commons/interfaces/Provider.html
-[Translator]: http://markenwerk.github.io/java-commons-interfaces/javadoc/2.0.0/index.html?net/markenwerk/commons/interfaces/Translator.html
+[Callback]: http://static.javadoc.io/net.markenwerk/commons-interfaces/2.0.0/index.html?net/markenwerk/commons/interfaces/Callback.html
+[Converter]: http://static.javadoc.io/net.markenwerk/commons-interfaces/2.0.0/index.html?net/markenwerk/commons/interfaces/Converter.html
+[CustomizingProducer]: http://static.javadoc.io/net.markenwerk/commons-interfaces/2.0.0/index.html?net/markenwerk/commons/interfaces/CustomizingProducer.html
+[CustomizingProvider]: http://static.javadoc.io/net.markenwerk/commons-interfaces/2.0.0/index.html?net/markenwerk/commons/interfaces/CustomizingProvider.html
+[Predicate]: http://static.javadoc.io/net.markenwerk/commons-interfaces/2.0.0/index.html?net/markenwerk/commons/interfaces/Predicate.html
+[Producer]: http://static.javadoc.io/net.markenwerk/commons-interfaces/2.0.0/index.html?net/markenwerk/commons/interfaces/Producer.html
+[Provider]: http://static.javadoc.io/net.markenwerk/commons-interfaces/2.0.0/index.html?net/markenwerk/commons/interfaces/Provider.html
+[Translator]: http://static.javadoc.io/net.markenwerk/commons-interfaces/2.0.0/index.html?net/markenwerk/commons/interfaces/Translator.html
 
-[ConversionException]: http://markenwerk.github.io/java-commons-interfaces/javadoc/2.0.0/index.html?net/markenwerk/commons/exceptions/ConversionException.html
-[EvaluationException]: http://markenwerk.github.io/java-commons-interfaces/javadoc/2.0.0/index.html?net/markenwerk/commons/exceptions/EvaluationException.html
-[ProductionException]: http://markenwerk.github.io/java-commons-interfaces/javadoc/2.0.0/index.html?net/markenwerk/commons/exceptions/ProductionException.html
-[ProvisioningException]: http://markenwerk.github.io/java-commons-interfaces/javadoc/2.0.0/index.html?net/markenwerk/commons/exceptions/ProvisioningException.html
+[ConversionException]: http://static.javadoc.io/net.markenwerk/commons-interfaces/2.0.0/index.html?net/markenwerk/commons/exceptions/ConversionException.html
+[EvaluationException]: http://static.javadoc.io/net.markenwerk/commons-interfaces/2.0.0/index.html?net/markenwerk/commons/exceptions/EvaluationException.html
+[ProductionException]: http://static.javadoc.io/net.markenwerk/commons-interfaces/2.0.0/index.html?net/markenwerk/commons/exceptions/ProductionException.html
+[ProvisioningException]: http://static.javadoc.io/net.markenwerk/commons-interfaces/2.0.0/index.html?net/markenwerk/commons/exceptions/ProvisioningException.html
 
 [Function]: http://docs.oracle.com/javase/8/docs/api/index.html?java/util/function/Function.html
 [Runnable]: http://docs.oracle.com/javase/6/docs/api/index.html?java/io/Runnable.html
