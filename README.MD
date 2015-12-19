@@ -136,7 +136,7 @@ A [`Producer`][Producer] should wrap every exception in an [`ProductionException
 The [`CustomizingProducer`][CustomizingProducer] interface should be used when a simple [`Producer`][Producer] is not sufficient, because it is neccessary to obtain customized (e.g. localized) values.
 
 
-A [`CustomizingProducer<Customization, Product>`][CustomizingCustomizing] needs to implement the following method:
+A [`CustomizingProducer<Customization, Product>`][CustomizingProducer] needs to implement the following method:
 
 ```java
 public Product produce(Customization customization) throws ProductionException
