@@ -22,7 +22,7 @@ Consult the [description](#interfaces) and [Javadoc](http://static.javadoc.io/ne
 
 ## Motivation
 
-Some interfaces, especially [functional interfaces](https://docs.oracle.com/javase/8/docs/api/java/lang/FunctionalInterface.html), are - by there nature - generic enough to describe a very broad field of situation. The Java standard API doesn't provide such interfaces, but some of the standard interfaces are used in a generic way. This is especially true for [`Runnable`][Runnable], which is used in event queues everywhere, although it has very specific semantics in relation to [`Thread`][Thread]. On the other hand, it wouldn't be very useful to create new interfaces with a similar signature, particularly because [`Runnable`][Runnable] is already a very concise and descriptive name. 
+Some interfaces, especially [functional interfaces](https://docs.oracle.com/javase/8/docs/api/java/lang/FunctionalInterface.html), are - by their nature - generic enough to describe a very broad field of situation. The Java standard API doesn't provide such interfaces, but some of the standard interfaces are used in a generic way. This is especially true for [`Runnable`][Runnable], which is used in event queues everywhere, although it has very specific semantics in relation to [`Thread`][Thread]. On the other hand, it wouldn't be very useful to create new interfaces with a similar signature, particularly because [`Runnable`][Runnable] is already a very concise and descriptive name. 
 
 A well chosen, concise and descriptive name reduces the necessity for a bulky method documentation, so even in an Java 8 environment, it may be better to use such interfaces, instead of a generic [`Function`][Function] parameters.
 
@@ -136,7 +136,7 @@ A [`Producer`][Producer] should wrap every exception in an [`ProductionException
 The [`CustomizingProducer`][CustomizingProducer] interface should be used when a simple [`Producer`][Producer] is not sufficient, because it is neccessary to obtain customized (e.g. localized) values.
 
 
-A [`CustomizingProducer<Customization, Product>`][CustomizingCustomizing] needs to implement the following method:
+A [`CustomizingProducer<Customization, Product>`][CustomizingProducer] needs to implement the following method:
 
 ```java
 public Product produce(Customization customization) throws ProductionException
