@@ -18,7 +18,7 @@ This library is hosted in the [Maven Central Repositoy](http://search.maven.org/
 </dependency>
 ```
 
-Consult the [description](#interfaces) and [Javadoc](http://static.javadoc.io/net.markenwerk/commons-interfaces/2.1.1/index.html) for further information.
+Consult the [description](#interfaces) and [Javadoc](https://markenwerk.github.io/java-commons-interfaces/index.html) for further information.
 
 ## Motivation
 
@@ -142,20 +142,20 @@ A [`CustomizingProducer<Customization, Product>`][CustomizingProducer] needs to 
 public Product produce(Customization customization) throws ProductionException
 ```
 
-[Callback]: http://static.javadoc.io/net.markenwerk/commons-interfaces/2.1.1/index.html?net/markenwerk/commons/interfaces/Callback.html
-[Converter]: http://static.javadoc.io/net.markenwerk/commons-interfaces/2.1.1/index.html?net/markenwerk/commons/interfaces/Converter.html
-[CustomizingProducer]: http://static.javadoc.io/net.markenwerk/commons-interfaces/2.1.1/index.html?net/markenwerk/commons/interfaces/CustomizingProducer.html
-[CustomizingProvider]: http://static.javadoc.io/net.markenwerk/commons-interfaces/2.1.1/index.html?net/markenwerk/commons/interfaces/CustomizingProvider.html
-[Predicate]: http://static.javadoc.io/net.markenwerk/commons-interfaces/2.1.1/index.html?net/markenwerk/commons/interfaces/Predicate.html
-[Producer]: http://static.javadoc.io/net.markenwerk/commons-interfaces/2.1.1/index.html?net/markenwerk/commons/interfaces/Producer.html
-[Provider]: http://static.javadoc.io/net.markenwerk/commons-interfaces/2.1.1/index.html?net/markenwerk/commons/interfaces/Provider.html
-[Translator]: http://static.javadoc.io/net.markenwerk/commons-interfaces/2.1.1/index.html?net/markenwerk/commons/interfaces/Translator.html
+[Callback]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/interfaces/Callback.html
+[Converter]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/interfaces/Converter.html
+[CustomizingProducer]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/interfaces/CustomizingProducer.html
+[CustomizingProvider]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/interfaces/CustomizingProvider.html
+[Predicate]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/interfaces/Predicate.html
+[Producer]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/interfaces/Producer.html
+[Provider]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/interfaces/Provider.html
+[Translator]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/interfaces/Translator.html
 
-[ConversionException]: http://static.javadoc.io/net.markenwerk/commons-interfaces/2.1.1/index.html?net/markenwerk/commons/exceptions/ConversionException.html
-[EvaluationException]: http://static.javadoc.io/net.markenwerk/commons-interfaces/2.1.1/index.html?net/markenwerk/commons/exceptions/EvaluationException.html
-[ProductionException]: http://static.javadoc.io/net.markenwerk/commons-interfaces/2.1.1/index.html?net/markenwerk/commons/exceptions/ProductionException.html
-[ProvisioningException]: http://static.javadoc.io/net.markenwerk/commons-interfaces/2.1.1/index.html?net/markenwerk/commons/exceptions/ProvisioningException.html
+[ConversionException]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/exceptions/ConversionException.html
+[EvaluationException]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/exceptions/EvaluationException.html
+[ProductionException]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/exceptions/ProductionException.html
+[ProvisioningException]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/exceptions/ProvisioningException.html
 
 [Function]: http://docs.oracle.com/javase/8/docs/api/index.html?java/util/function/Function.html
-[Runnable]: http://docs.oracle.com/javase/6/docs/api/index.html?java/io/Runnable.html
-[Thread]: http://docs.oracle.com/javase/6/docs/api/index.html?java/io/Thread.html
+[Runnable]: http://docs.oracle.com/javase/8/docs/api/index.html?java/io/Runnable.html
+[Thread]: http://docs.oracle.com/javase/8/docs/api/index.html?java/io/Thread.html
