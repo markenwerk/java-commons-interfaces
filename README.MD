@@ -8,13 +8,13 @@ This is a collection of some common interfaces that describe everyday use cases.
 
 ## Overview
 
-This library is hosted in the [Maven Central Repositoy](http://search.maven.org/#artifactdetails|net.markenwerk|commons-interfaces|2.1.1|jar). You can use it with the following coordinates:
+This library is hosted in the [Maven Central Repositoy](http://search.maven.org/#artifactdetails|net.markenwerk|commons-interfaces|2.1.2|jar). You can use it with the following coordinates:
 
 ```xml
 <dependency>
 	<groupId>net.markenwerk</groupId>
 	<artifactId>commons-interfaces</artifactId>
-	<version>2.1.1</version>
+	<version>2.1.2</version>
 </dependency>
 ```
 
