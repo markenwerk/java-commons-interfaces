@@ -8,7 +8,7 @@ This is a collection of some common interfaces that describe everyday use cases.
 
 ## Overview
 
-This library is hosted in the [Maven Central Repositoy](http://search.maven.org/#artifactdetails|net.markenwerk|commons-interfaces|2.1.2|jar). You can use it with the following coordinates:
+This library is hosted in the [Maven Central Repository](https://maven-badges.herokuapp.com/maven-central/net.markenwerk/commons-interfaces). You can use it with the following coordinates:
 
 ```xml
 <dependency>
@@ -44,11 +44,11 @@ public void onResult(Result result);
 
 A [`Callback`][Callback] should not throw any exceptions.
 
-One common use case for a [`Callback`][Callback] is som service, that runs synchronously.
+One common use case for a [`Callback`][Callback] is some service, that runs synchronously.
 
 ### Predicate
 
-The [`Predicate`][Predicate] interface should be used by components that perform binary tests on some test subjects; most likely, but not necessarily, to filter a collection or stream if oncoming or outgoing test subjects.
+The [`Predicate`][Predicate] interface should be used by components that perform binary tests on some test subjects; most likely, but not necessarily, to filter a collection or stream if incoming or outgoing test subjects.
 
 A [`Predicate<Subject>`][Predicate] needs to implement the following method:
 
@@ -64,7 +64,7 @@ One common use case for a [`Predicate`][Predicate] is some data provider, that w
 
 #### Converter
 
-The [`Converter`][Converter] interface should be used by components that perform conversions on some values; most likely, but not necessarily, to convert a collection or stream if oncoming or outgoing values.
+The [`Converter`][Converter] interface should be used by components that perform conversions on some values; most likely, but not necessarily, to convert a collection or stream if incoming or outgoing values.
 
 A [`Converter<From, To>`][Converter] needs to implement the following method:
 
@@ -109,7 +109,7 @@ A [`Provider`][Provider] should wrap every exception in an [`ProvisioningExcepti
 
 #### Customizing Provider
 
-The [`CustomizingProvider`][CustomizingProvider] interface should be used when a simple [`Provider`][Provider] is not sufficient, because it is neccessary to obtain customized (e.g. localized) values.
+The [`CustomizingProvider`][CustomizingProvider] interface should be used when a simple [`Provider`][Provider] is not sufficient, because it is necessary to obtain customized (e.g. localized) values.
 
 A [`CustomizingProvider<Customization, Product>`][CustomizingProvider] needs to implement the following method:
 
@@ -133,7 +133,7 @@ A [`Producer`][Producer] should wrap every exception in an [`ProductionException
 
 #### Customizing Producer
 
-The [`CustomizingProducer`][CustomizingProducer] interface should be used when a simple [`Producer`][Producer] is not sufficient, because it is neccessary to obtain customized (e.g. localized) values.
+The [`CustomizingProducer`][CustomizingProducer] interface should be used when a simple [`Producer`][Producer] is not sufficient, because it is necessary to obtain customized (e.g. localized) values.
 
 
 A [`CustomizingProducer<Customization, Product>`][CustomizingProducer] needs to implement the following method:
