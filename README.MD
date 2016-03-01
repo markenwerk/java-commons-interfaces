@@ -3,6 +3,8 @@
 [![Build Status](https://travis-ci.org/markenwerk/java-commons-interfaces.svg?branch=master)](https://travis-ci.org/markenwerk/java-commons-interfaces)
 [![Dependency Status](https://www.versioneye.com/user/projects/56323f1636d0ab0016001bc4/badge.svg)](https://www.versioneye.com/user/projects/56323f1636d0ab0016001bc4)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/net.markenwerk/commons-interfaces/badge.svg)](https://maven-badges.herokuapp.com/maven-central/net.markenwerk/commons-interfaces)
+[![Java SE 6](https://img.shields.io/badge/java-SE_6-brightgreen.svg)](http://docs.oracle.com/javase/6/docs/api/)
+[![MIT License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/markenwerk/java-commons-interfaces/blob/master/LICENSE)
 
 This is a collection of some common interfaces that describe everyday use cases. It is mainly intended for API providers who don't want to redeclare somewhat trivial interfaces all the time.
 
