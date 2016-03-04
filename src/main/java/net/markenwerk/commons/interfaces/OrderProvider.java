@@ -23,21 +23,22 @@ package net.markenwerk.commons.interfaces;
 
 import java.util.Iterator;
 
-import net.markenwerk.commons.exceptions.ProvisioningException;
+import net.markenwerk.commons.exceptions.CreationException;
 
 /**
- * A {@link CustomizingProvider} provides customized values of the corresponding
- * product type.
+ * A {@link OrderProvider} provides customized values of the corresponding
+ * product type. It acts like a {@link Provider} that takes orders and provides
+ * corresponding products.
  * 
  * <p>
  * Implementers may provide a new instance of the product each time
- * {@link CustomizingProvider#provide(Object)} is called, but aren't required to do
- * so. An instance of the product that has already been returned once, may be
+ * {@link OrderProvider#create(Object)} is called, but aren't required to do so.
+ * An instance of the product that has already been returned once, may be
  * returned again for any or all following calls.
  * 
  * <p>
- * It is therefore not recommended to use {@link CustomizingProvider Provides}
- * for products that are stateful unless the internal state of a values doesn't
+ * It is therefore not recommended to use {@link OrderProvider Provides} for
+ * products that are stateful unless the internal state of a values doesn't
  * change the value. It is for example okay to use {@link String} as the product
  * type, although instances are stateful ({@link String} instances store their
  * hash value after it has been calculated for the first time and are therefore
@@ -46,10 +47,10 @@ import net.markenwerk.commons.exceptions.ProvisioningException;
  * the {@link Iterator} instance.
  * 
  * <p>
- * {@link CustomizingProvider Providers} are intended to be used in
- * situation, where a mechanism to retrieve a value is more desirable than
- * having the value from the start. These are usually, but not necessarily,
- * situations where the following two conditions are met.
+ * {@link OrderProvider Providers} are intended to be used in situation, where a
+ * mechanism to retrieve a value is more desirable than having the value from
+ * the start. These are usually, but not necessarily, situations where the
+ * following two conditions are met.
  * 
  * <ul>
  * <li>It is not certain that the value will be used.</li>
@@ -58,19 +59,19 @@ import net.markenwerk.commons.exceptions.ProvisioningException;
  * 
  * <p>
  * The second condition may only be true for the first call to
- * {@link CustomizingProvider#provide(Object)} since {@link CustomizingProvider
- * Providers} are allowed to cache and reuse the value.
+ * {@link OrderProvider#create(Object)} since {@link OrderProvider Providers}
+ * are allowed to cache and reuse the value.
  * 
- * @param <Customization>
+ * @param <Order>
  *            The type of the product customization.
  * @param <Product>
  *            The type of the values to be provided.
  * @since 1.0.0
  * @author Torsten Krause (tk at markenwerk dot net)
- * @see CustomizingProducer
+ * @see OrderProducer
  * @see Provider
  */
-public interface CustomizingProvider<Customization, Product> {
+public interface OrderProvider<Order, Product> {
 
 	/**
 	 * Provides a customized product. This may be a costly operation.
@@ -88,14 +89,15 @@ public interface CustomizingProvider<Customization, Product> {
 	 * 
 	 * <p>
 	 * Implementers should catch any exception and wrap them in a
-	 * {@link ProvisioningException}.
+	 * {@link CreationException}.
 	 * 
-	 * @param customization The customization to take into account.
+	 * @param customization
+	 *            The customization to take into account.
 	 * 
 	 * @return The provided product.
-	 * @throws ProvisioningException
+	 * @throws CreationException
 	 *             If the provisioning of the product failed.
 	 */
-	public Product provide(Customization customization) throws ProvisioningException;
+	public Product create(Order customization) throws CreationException;
 
 }

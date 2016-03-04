@@ -23,14 +23,15 @@ package net.markenwerk.commons.interfaces;
 
 import java.util.Iterator;
 
-import net.markenwerk.commons.exceptions.ProductionException;
+import net.markenwerk.commons.exceptions.CreationException;
 
 /**
  * A {@link Producer} produces values of the corresponding product type.
  * 
  * <p>
  * Implementers must produce a new instance of the product, each time
- * {@link Producer#produce()} is called.
+ * {@link Producer#create()} is called. It is therefore possible to use a
+ * {@link Producer} as a {@link Provider}.
  * 
  * <p>
  * It is therefore okay to use {@link Producer Producers} for products that are
@@ -46,8 +47,8 @@ import net.markenwerk.commons.exceptions.ProductionException;
  * {@link Producer Producers} are especially helpful, if it is likely that
  * multiple instances of a stateful product will be used (i.e. multiple
  * {@link Iterator Iterators} over the same underlying data). Another use case
- * where a {@link Producer} may be more favorable than a {@link Provider} is,
- * if it is not desirable to keep the value in memory.
+ * where a {@link Producer} may be more favorable than a {@link Provider} is, if
+ * it is not desirable to keep the value in memory.
  * 
  * @param <Product>
  *            The type of the values to be produced.
@@ -55,7 +56,7 @@ import net.markenwerk.commons.exceptions.ProductionException;
  * @author Torsten Krause (tk at markenwerk dot net)
  * @see Provider
  */
-public interface Producer<Product>  {
+public interface Producer<Product> extends Provider<Product> {
 
 	/**
 	 * Produces a new product. This may be a costly operation
@@ -71,12 +72,13 @@ public interface Producer<Product>  {
 	 * 
 	 * <p>
 	 * Implementers should catch any exception and wrap them in a
-	 * {@link ProductionException}.
+	 * {@link CreationException}.
 	 * 
 	 * @return The produced product.
-	 * @throws ProductionException
+	 * @throws CreationException
 	 *             If the production of the product failed.
 	 */
-	public Product produce() throws ProductionException;
+	@Override
+	public Product create() throws CreationException;
 
 }

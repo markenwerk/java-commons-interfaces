@@ -23,14 +23,14 @@ package net.markenwerk.commons.interfaces;
 
 import java.util.Iterator;
 
-import net.markenwerk.commons.exceptions.ProvisioningException;
+import net.markenwerk.commons.exceptions.CreationException;
 
 /**
  * A {@link Provider} provides values of the corresponding product type.
  * 
  * <p>
  * Implementers may provide a new instance of the product each time
- * {@link Provider#provide()} is called, but aren't required to do so. An
+ * {@link Provider#create()} is called, but aren't required to do so. An
  * instance of the product that has already been returned once, may be returned
  * again for any or all following calls.
  * 
@@ -57,7 +57,7 @@ import net.markenwerk.commons.exceptions.ProvisioningException;
  * 
  * <p>
  * The second condition may only be true for the first call to
- * {@link Provider#provide()} since {@link Provider Providers} are allowed to
+ * {@link Provider#create()} since {@link Provider Providers} are allowed to
  * cache and reuse the value.
  * 
  * @param <Product>
@@ -84,12 +84,12 @@ public interface Provider<Product> {
 	 * 
 	 * <p>
 	 * Implementers should catch any exception and wrap them in a
-	 * {@link ProvisioningException}.
+	 * {@link CreationException}.
 	 * 
 	 * @return The provided product.
-	 * @throws ProvisioningException
+	 * @throws CreationException
 	 *             If the provisioning of the product failed.
 	 */
-	public Product provide() throws ProvisioningException;
+	public Product create() throws CreationException;
 
 }

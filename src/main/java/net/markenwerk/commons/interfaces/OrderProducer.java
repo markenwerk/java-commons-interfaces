@@ -23,43 +23,45 @@ package net.markenwerk.commons.interfaces;
 
 import java.util.Iterator;
 
-import net.markenwerk.commons.exceptions.ProductionException;
+import net.markenwerk.commons.exceptions.CreationException;
 
 /**
- * A {@link CustomizingProducer} produces customized values of the corresponding
- * product type.
+ * An {@link OrderProducer} produces customized values of the corresponding
+ * product type. It acts like a {@link Producer} that takes orders and provides
+ * corresponding products.
  * 
  * <p>
  * Implementers must produce a new instance of the product, each time
- * {@link CustomizingProducer#produce(Object)} is called.
+ * {@link OrderProducer#create(Object)} is called. It is therefore possible to
+ * use an {@link OrderProducer} as an {@link OrderProvider}.
  * 
  * <p>
- * It is therefore okay to use {@link CustomizingProducer Producers} for
- * products that are stateful.
+ * It is therefore okay to use {@link OrderProducer Producers} for products that
+ * are stateful.
  * 
  * <p>
- * {@link CustomizingProducer Producers} are intended to be used in
- * situation, where a mechanism to retrieve a value is more desirable than
- * having the value from the start and a {@link Provider} is not sufficient
- * (i.e. because the product is stateful).
+ * {@link OrderProducer Producers} are intended to be used in situation, where a
+ * mechanism to retrieve a value is more desirable than having the value from
+ * the start and a {@link Provider} is not sufficient (i.e. because the product
+ * is stateful).
  * 
  * <p>
- * {@link CustomizingProducer Producers} are especially helpful, if it is likely
- * that multiple instances of a stateful product will be used (i.e. multiple
+ * {@link OrderProducer Producers} are especially helpful, if it is likely that
+ * multiple instances of a stateful product will be used (i.e. multiple
  * {@link Iterator Iterators} over the same underlying data). Another use case
- * where a {@link CustomizingProducer} may be more favorable than a {@link
- * Provider} is, if it is not desirable to keep the value in memory.
+ * where a {@link OrderProducer} may be more favorable than a {@link Provider}
+ * is, if it is not desirable to keep the value in memory.
  * 
- * @param <Customization>
+ * @param <Order>
  *            The type of the product customization.
  * @param <Product>
  *            The type of the values to be produced.
  * @since 1.0.0
  * @author Torsten Krause (tk at markenwerk dot net)
- * @see CustomizingProvider
+ * @see OrderProvider
  * @see Producer
  */
-public interface CustomizingProducer<Customization, Product> {
+public interface OrderProducer<Order, Product> extends OrderProvider<Order, Product> {
 
 	/**
 	 * Produces a new customized product. This may be a costly operation
@@ -75,15 +77,16 @@ public interface CustomizingProducer<Customization, Product> {
 	 * 
 	 * <p>
 	 * Implementers should catch any exception and wrap them in a
-	 * {@link ProductionException}.
+	 * {@link CreationException}.
 	 * 
 	 * @param customization
 	 *            The customization to take into account.
 	 * 
 	 * @return The produced product.
-	 * @throws ProductionException
+	 * @throws CreationException
 	 *             If the production of the product failed.
 	 */
-	public Product produce(Customization customization) throws ProductionException;
+	@Override
+	public Product create(Order customization) throws CreationException;
 
 }

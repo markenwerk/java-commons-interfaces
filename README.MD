@@ -104,19 +104,19 @@ The [`Provider`][Provider] interface should be used by components that may need 
 A [`Provider<Product>`][Provider] needs to implement the following method:
 
 ```java
-public Product provide() throws ProvisioningException
+public Product create() throws CreationException
 ```
 
-A [`Provider`][Provider] should wrap every exception in an [`ProvisioningException`][ProvisioningException]. A [`Provider`][Provider] may return the same instance for multiple invocations. Therefore, a [`Provider`][Provider] schouln't be used to provide stateful or consumable data.
+A [`Provider`][Provider] should wrap every exception in an [`CreationException`][CreationException]. A [`Provider`][Provider] may return the same instance for multiple invocations. Therefore, a [`Provider`][Provider] mustn't be used to provide stateful or consumable data.
 
-#### Customizing Provider
+#### Order Provider
 
-The [`CustomizingProvider`][CustomizingProvider] interface should be used when a simple [`Provider`][Provider] is not sufficient, because it is necessary to obtain customized (e.g. localized) values.
+The [`OrderProvider`][OrderProvider] interface should be used when a simple [`Provider`][Provider] is not sufficient, because it is necessary to obtain contextual (e.g. location-, date-, or language-dependent) values. It acts like a [`Provider`][Provider] that takes orders and provides corresponding values.
 
-A [`CustomizingProvider<Customization, Product>`][CustomizingProvider] needs to implement the following method:
+An [`OrderProvider<Order, Product>`][OrderProvider] needs to implement the following method:
 
 ```java
-public Product provide(Customization customization) throws ProvisioningException
+public Product create(Order order) throws CreationException
 ```
 
 #### Producer
@@ -128,26 +128,26 @@ The [`Producer`][Producer] interface should be used by components that needs a v
 A [`Producer<Product>`][Producer] needs to implement the following method:
 
 ```java
-public Product produce() throws ProductionException
+public Product create() throws CreationException
 ```
 
-A [`Producer`][Producer] should wrap every exception in an [`ProductionException`][ProductionException]. A [`Producer`][Producer] must return a new instance for every invocation.
+A [`Producer`][Producer] should wrap every exception in an [`CreationException`][CreationException]. A [`Producer`][Producer] must return a new instance for every invocation.
 
-#### Customizing Producer
+#### Order Producer
 
-The [`CustomizingProducer`][CustomizingProducer] interface should be used when a simple [`Producer`][Producer] is not sufficient, because it is necessary to obtain customized (e.g. localized) values.
+The [`OrderProducer`][OrderProducer] interface should be used when a simple [`Producer`][Producer] is not sufficient, because it is necessary to obtain contextual (e.g. location-, date-, or language-dependent) values. It acts like a [`Producer`][Producer] that takes orders and produces corresponding values.
 
 
-A [`CustomizingProducer<Customization, Product>`][CustomizingProducer] needs to implement the following method:
+An [`OrderProducer<Order, Product>`][OrderProducer] needs to implement the following method:
 
 ```java
-public Product produce(Customization customization) throws ProductionException
+public Product create(Order order) throws CreationException
 ```
 
 [Callback]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/interfaces/Callback.html
 [Converter]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/interfaces/Converter.html
-[CustomizingProducer]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/interfaces/CustomizingProducer.html
-[CustomizingProvider]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/interfaces/CustomizingProvider.html
+[OrderProducer]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/interfaces/OrderProducer.html
+[OrderProvider]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/interfaces/OrderProvider.html
 [Predicate]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/interfaces/Predicate.html
 [Producer]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/interfaces/Producer.html
 [Provider]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/interfaces/Provider.html
@@ -155,8 +155,7 @@ public Product produce(Customization customization) throws ProductionException
 
 [ConversionException]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/exceptions/ConversionException.html
 [EvaluationException]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/exceptions/EvaluationException.html
-[ProductionException]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/exceptions/ProductionException.html
-[ProvisioningException]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/exceptions/ProvisioningException.html
+[CreationException]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/exceptions/CreationException.html
 
 [Function]: http://docs.oracle.com/javase/8/docs/api/index.html?java/util/function/Function.html
 [Runnable]: http://docs.oracle.com/javase/8/docs/api/index.html?java/io/Runnable.html

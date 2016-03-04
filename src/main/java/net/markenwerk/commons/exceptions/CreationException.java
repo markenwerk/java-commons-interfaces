@@ -21,52 +21,52 @@
  */
 package net.markenwerk.commons.exceptions;
 
-import net.markenwerk.commons.interfaces.Provider;
+import net.markenwerk.commons.interfaces.Producer;
 
 /**
- * A {@link ProvisioningException} indicates that a {@link Provider} failed to
- * provide a product.
+ * A {@link CreationException} indicates that a {@link Producer} failed to
+ * produce a product.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)
  * @since 1.0.0
  * 
- * @see Provider
+ * @see Producer
  */
-public final class ProvisioningException extends RuntimeException {
+public final class CreationException extends RuntimeException {
 
-	private static final long serialVersionUID = -8060847820853704214L;
+	private static final long serialVersionUID = 8658949883506215155L;
 
 	/**
-	 * Constructs a {@link ProvisioningException} with the given message and cause.
+	 * Constructs a {@link CreationException} with the given message and cause.
 	 * The given cause is chained to this exception.
 	 *
 	 * @param message
 	 *            The message.
 	 * @param cause
-	 *            The cause of this {@link ProvisioningException}.
+	 *            The cause of this {@link CreationException}.
 	 */
-	public ProvisioningException(String message, Throwable cause) {
+	public CreationException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
 	/**
-	 * Constructs a {@link ProvisioningException} with the given message.
+	 * Constructs a {@link CreationException} with the given message.
 	 *
 	 * @param message
 	 *            The message.
 	 */
-	public ProvisioningException(String message) {
+	public CreationException(String message) {
 		super(message);
 	}
 
 	/**
-	 * Constructs a {@link ProvisioningException} with the given cause. The given
+	 * Constructs a {@link CreationException} with the given cause. The given
 	 * cause is chained to this exception.
 	 *
 	 * @param cause
-	 *            The cause of this {@link ProvisioningException}.
+	 *            The cause of this {@link CreationException}.
 	 */
-	public ProvisioningException(Throwable cause) {
+	public CreationException(Throwable cause) {
 		super(cause);
 	}
 
