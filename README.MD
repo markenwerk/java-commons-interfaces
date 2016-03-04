@@ -36,7 +36,7 @@ Therefore, this library provides a collection of common interfaces that describe
 
 ### Callback
 
-The [`Callback`][Callback] interface should be used by components that perform a costly (time-consuming) operation that will eventually yield a result; most likely, but not necessarily, in a multithreaded scenario.
+The [`Callback`][Callback] interface should be used by components that perform an operation that will eventually yield a result.
 
 A [`Callback<Result>`][Callback] needs to implement the following method:
 
@@ -46,7 +46,17 @@ public void onResult(Result result);
 
 A [`Callback`][Callback] should not throw any exceptions.
 
-One common use case for a [`Callback`][Callback] is some service, that runs synchronously.
+### Handler
+
+The [`Handler`][Handler] interface should be used by components that perform an operation that may encounter some event.
+
+A [`Handler<Event>`][Handler] needs to implement the following method:
+
+```java
+public void handle(Handler result);
+```
+
+A [`Handler`][Handler] should not throw any exceptions.
 
 ### Predicate
 
