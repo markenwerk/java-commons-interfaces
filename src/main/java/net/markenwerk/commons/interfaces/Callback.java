@@ -30,10 +30,6 @@ import java.lang.ref.WeakReference;
  * (hereafter: initiator).
  * 
  * <p>
- * A {@link Callback} is most likely, but not necessarily, used in a
- * multithreaded scenario.
- * 
- * <p>
  * Depending on the concrete scenario, the initiator may reuse the same instance
  * of {@link Callback} for multiple processes and even for the same executor,
  * although the letter is unusual.
