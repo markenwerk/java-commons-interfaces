@@ -31,7 +31,7 @@ import net.markenwerk.commons.exceptions.ProvisioningException;
  * 
  * <p>
  * Implementers may provide a new instance of the product each time
- * {@link CustomizingProvider#provide(Object)} is called, but aren't requiered to do
+ * {@link CustomizingProvider#provide(Object)} is called, but aren't required to do
  * so. An instance of the product that has already been returned once, may be
  * returned again for any or all following calls.
  * 
@@ -47,13 +47,13 @@ import net.markenwerk.commons.exceptions.ProvisioningException;
  * 
  * <p>
  * {@link CustomizingProvider Providers} are intended to be used in
- * situatuation, where a mechanism to retreive a value is more desirable than
- * having the value from the start. Theese are usually, but not necessarily,
+ * situation, where a mechanism to retrieve a value is more desirable than
+ * having the value from the start. These are usually, but not necessarily,
  * situations where the following two conditions are met.
  * 
  * <ul>
- * <li>It is not certein that the value will be used.</li>
- * <li>It is likeley that it is a costly operation to create the value.</li>
+ * <li>It is not certain that the value will be used.</li>
+ * <li>It is likely that it is a costly operation to create the value.</li>
  * </ul>
  * 
  * <p>
@@ -77,7 +77,7 @@ public interface CustomizingProvider<Customization, Product> {
 	 * 
 	 * <p>
 	 * Implementers may provide a new instance of the product each time this
-	 * method is called, but aren't requiered to do so. An instance of the
+	 * method is called, but aren't required to do so. An instance of the
 	 * product that has already been returned once, may be returned again in any
 	 * or all following calls.
 	 * 

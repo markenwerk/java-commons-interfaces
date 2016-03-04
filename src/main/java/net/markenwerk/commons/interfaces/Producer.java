@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015 Torsten Krause, Markenwerk GmbH
+ * Copyright (c) 2015, 2016 Torsten Krause, Markenwerk GmbH
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -37,16 +37,16 @@ import net.markenwerk.commons.exceptions.ProductionException;
  * stateful.
  * 
  * <p>
- * {@link Producer Producers} are intended to be used in situatuation, where a
- * mechanism to retreive a value is more desirable than having the value from
+ * {@link Producer Producers} are intended to be used in situation, where a
+ * mechanism to retrieve a value is more desirable than having the value from
  * the start and a {@link Provider} is not sufficient (i.e. because the product
  * is stateful).
  * 
  * <p>
- * {@link Producer Producers} ar espacially helpful, if it is likely that
+ * {@link Producer Producers} are especially helpful, if it is likely that
  * multiple instances of a stateful product will be used (i.e. multiple
  * {@link Iterator Iterators} over the same underlying data). Another use case
- * where a {@link Producer} may be more favourable than a {qlink Provider} is,
+ * where a {@link Producer} may be more favorable than a {@link Provider} is,
  * if it is not desirable to keep the value in memory.
  * 
  * @param <Product>

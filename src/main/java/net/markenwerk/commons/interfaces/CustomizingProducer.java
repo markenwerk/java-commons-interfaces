@@ -39,15 +39,15 @@ import net.markenwerk.commons.exceptions.ProductionException;
  * 
  * <p>
  * {@link CustomizingProducer Producers} are intended to be used in
- * situatuation, where a mechanism to retreive a value is more desirable than
+ * situation, where a mechanism to retrieve a value is more desirable than
  * having the value from the start and a {@link Provider} is not sufficient
  * (i.e. because the product is stateful).
  * 
  * <p>
- * {@link CustomizingProducer Producers} ar espacially helpful, if it is likely
+ * {@link CustomizingProducer Producers} are especially helpful, if it is likely
  * that multiple instances of a stateful product will be used (i.e. multiple
  * {@link Iterator Iterators} over the same underlying data). Another use case
- * where a {@link CustomizingProducer} may be more favourable than a {qlink
+ * where a {@link CustomizingProducer} may be more favorable than a {@link
  * Provider} is, if it is not desirable to keep the value in memory.
  * 
  * @param <Customization>
