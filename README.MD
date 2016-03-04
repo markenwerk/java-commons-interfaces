@@ -156,6 +156,7 @@ public Product create(Order order) throws CreationException
 
 [Callback]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/interfaces/Callback.html
 [Converter]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/interfaces/Converter.html
+[Handler]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/interfaces/Handler.html
 [OrderProducer]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/interfaces/OrderProducer.html
 [OrderProvider]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/interfaces/OrderProvider.html
 [Predicate]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/interfaces/Predicate.html
