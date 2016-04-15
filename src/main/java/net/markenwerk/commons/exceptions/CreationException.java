@@ -37,8 +37,7 @@ public final class CreationException extends RuntimeException {
 	private static final long serialVersionUID = 8658949883506215155L;
 
 	/**
-	 * Constructs a {@link CreationException} with the given message and cause.
-	 * The given cause is chained to this exception.
+	 * Creates a new {@link CreationException} with the given message and cause.
 	 *
 	 * @param message
 	 *            The message.
@@ -50,7 +49,7 @@ public final class CreationException extends RuntimeException {
 	}
 
 	/**
-	 * Constructs a {@link CreationException} with the given message.
+	 * Creates a new {@link CreationException} with the given message.
 	 *
 	 * @param message
 	 *            The message.
@@ -60,14 +59,13 @@ public final class CreationException extends RuntimeException {
 	}
 
 	/**
-	 * Constructs a {@link CreationException} with the given cause. The given
-	 * cause is chained to this exception.
+	 * Creates a new {@link CreationException} with the given cause.
 	 *
 	 * @param cause
 	 *            The cause of this {@link CreationException}.
 	 */
 	public CreationException(Throwable cause) {
-		super(cause);
+		super(null == cause ? null : cause.getMessage(), cause);
 	}
 
 }

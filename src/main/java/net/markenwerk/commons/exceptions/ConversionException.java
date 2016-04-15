@@ -38,8 +38,8 @@ public final class ConversionException extends RuntimeException {
 	private static final long serialVersionUID = 8161906006366859761L;
 
 	/**
-	 * Constructs a {@link ConversionException} with the given message and cause.
-	 * The given cause is chained to this exception.
+	 * Creates a new {@link ConversionException} with the given message and
+	 * cause.
 	 *
 	 * @param message
 	 *            The message.
@@ -51,7 +51,7 @@ public final class ConversionException extends RuntimeException {
 	}
 
 	/**
-	 * Constructs a {@link ConversionException} with the given message.
+	 * Creates a new {@link ConversionException} with the given message.
 	 *
 	 * @param message
 	 *            The message.
@@ -61,14 +61,13 @@ public final class ConversionException extends RuntimeException {
 	}
 
 	/**
-	 * Constructs a {@link ConversionException} with the given cause. The given
-	 * cause is chained to this exception.
+	 * Creates a new {@link ConversionException} with the given cause
 	 *
 	 * @param cause
 	 *            The cause of this {@link ConversionException}.
 	 */
 	public ConversionException(Throwable cause) {
-		super(cause);
+		super(null == cause ? null : cause.getMessage(), cause);
 	}
 
 }

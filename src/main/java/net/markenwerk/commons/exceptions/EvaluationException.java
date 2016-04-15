@@ -37,8 +37,8 @@ public final class EvaluationException extends RuntimeException {
 	private static final long serialVersionUID = -1717421532938676308L;
 
 	/**
-	 * Constructs a {@link EvaluationException} with the given message and cause.
-	 * The given cause is chained to this exception.
+	 * Creates a new {@link EvaluationException} with the given message and
+	 * cause.
 	 *
 	 * @param message
 	 *            The message.
@@ -50,7 +50,7 @@ public final class EvaluationException extends RuntimeException {
 	}
 
 	/**
-	 * Constructs a {@link EvaluationException} with the given message.
+	 * Creates a new {@link EvaluationException} with the given message.
 	 *
 	 * @param message
 	 *            The message.
@@ -60,14 +60,13 @@ public final class EvaluationException extends RuntimeException {
 	}
 
 	/**
-	 * Constructs a {@link EvaluationException} with the given cause. The given
-	 * cause is chained to this exception.
+	 * Creates a new {@link EvaluationException} with the given cause.
 	 *
 	 * @param cause
 	 *            The cause of this {@link EvaluationException}.
 	 */
 	public EvaluationException(Throwable cause) {
-		super(cause);
+		super(null == cause ? null : cause.getMessage(), cause);
 	}
 
 }
