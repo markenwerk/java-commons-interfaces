@@ -24,46 +24,46 @@ package net.markenwerk.commons.exceptions;
 import net.markenwerk.commons.interfaces.Predicate;
 
 /**
- * A {@link PredicationException} indicates that a {@link Predicate} failed to
+ * A {@link ExaminationException} indicates that a {@link Predicate} failed to
  * test a subject.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)
  * @since 4.0.0
  */
-public final class PredicationException extends RuntimeException {
+public final class ExaminationException extends RuntimeException {
 
 	private static final long serialVersionUID = -347270354675664640L;
 
 	/**
-	 * Creates a new {@link PredicationException} with the given message and
+	 * Creates a new {@link ExaminationException} with the given message and
 	 * cause.
 	 *
 	 * @param message
 	 *            The message.
 	 * @param cause
-	 *            The cause of this {@link PredicationException}.
+	 *            The cause of this {@link ExaminationException}.
 	 */
-	public PredicationException(String message, Throwable cause) {
+	public ExaminationException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
 	/**
-	 * Creates a new {@link PredicationException} with the given message.
+	 * Creates a new {@link ExaminationException} with the given message.
 	 *
 	 * @param message
 	 *            The message.
 	 */
-	public PredicationException(String message) {
+	public ExaminationException(String message) {
 		super(message);
 	}
 
 	/**
-	 * Creates a new {@link PredicationException} with the given cause.
+	 * Creates a new {@link ExaminationException} with the given cause.
 	 *
 	 * @param cause
-	 *            The cause of this {@link PredicationException}.
+	 *            The cause of this {@link ExaminationException}.
 	 */
-	public PredicationException(Throwable cause) {
+	public ExaminationException(Throwable cause) {
 		super(null == cause ? null : cause.getMessage(), cause);
 	}
 
