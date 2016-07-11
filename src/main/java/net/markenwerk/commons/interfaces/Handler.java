@@ -21,19 +21,30 @@
  */
 package net.markenwerk.commons.interfaces;
 
+import java.lang.ref.WeakReference;
+
+import net.markenwerk.commons.exceptions.HandelingException;
+
 /**
- * For an arbitrary process, that may encounter some kind of event and needs to
- * delegate the event handling, a {@link Handler} is used, to convey that event
- * from the executor of the process (hereafter: executor) back to the initiator
- * of the process (hereafter: initiator).
+ * For an arbitrary process, that may encounter some condition and needs to
+ * delegate the handling, a {@link Handler} is used, to convey the involved
+ * value from the executor of the process (hereafter: executor) back to the
+ * initiator of the process (hereafter: initiator).
  * 
  * <p>
  * Depending on the concrete scenario, the initiator may reuse the same instance
- * of {@link Handler} for multiple processes and even for the same executor,
- * although the letter is unusual.
+ * of {@link Handler} for multiple processes and even for the same executor.
  * 
  * <p>
  * The executor may or may not call {@link Handler#handle(Object)}.
+ * 
+ * <p>
+ * A useful application to this rule is, when the executor can ensure, that the
+ * result wont't be needed by the initiator, because the initiator itself is not
+ * needed anymore. This is usually implemented by placing the {@link Callback}
+ * in a {@link WeakReference}. Because using anonymous instances of
+ * {@link Handler} will most likely fail in this situation, it should be noted
+ * in the contract of the method, that takes the {@link Handler} as an argument.
  * 
  * <p>
  * The executor may call {@link Handler#handle(Object)}, more than once,
@@ -43,21 +54,27 @@ package net.markenwerk.commons.interfaces;
  * 
  * <p>
  * The executor must not call {@link Handler#handle(Object)} more than once for
- * the same event.
+ * the same subject.
  * 
- * @param <Event>
- *            The type of the event of the process.
- * @since 3.0.0
+ * @param <Value>
+ *            The type of the einvolved value.
  * @author Torsten Krause (tk at markenwerk dot net)
+ * @since 4.0.0
  */
-public interface Handler<Event> {
+public interface Handler<Value> {
 
 	/**
-	 * Called by the executor when an event occurs.
+	 * Called by the executor when an condition occurs.
 	 * 
-	 * @param event
-	 *            The event.
+	 * <p>
+	 * Implementers should catch any exception and wrap them in a
+	 * {@link HandelingException}.
+	 * 
+	 * @param value
+	 *            The involved value.
+	 * @throws HandelingException
+	 *             If the handling failed.
 	 */
-	public void handle(Event event);
+	public void handle(Value value) throws HandelingException;
 
 }

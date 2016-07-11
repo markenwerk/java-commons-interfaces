@@ -21,50 +21,49 @@
  */
 package net.markenwerk.commons.exceptions;
 
-import net.markenwerk.commons.interfaces.Converter;
-import net.markenwerk.commons.interfaces.Translator;
+import net.markenwerk.commons.interfaces.Producer;
 
 /**
- * A {@link HandelingException} indicates that a {@link Converter} (or
- * {@link Translator}) failed to convert (or revert )a value.
+ * A {@link ProductionException} indicates that a {@link Producer} failed to
+ * produce a value.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)
- * @since 1.0.0
+ * @since 4.0.0
  */
-public final class ConversionException extends RuntimeException {
+public final class ProductionException extends RuntimeException {
 
-	private static final long serialVersionUID = -8951886523081829677L;
+	private static final long serialVersionUID = -5672510627598518447L;
 
 	/**
-	 * Creates a new {@link ConversionException} with the given message and
+	 * Creates a new {@link ProductionException} with the given message and
 	 * cause.
 	 *
 	 * @param message
 	 *            The message.
 	 * @param cause
-	 *            The cause of this {@link ConversionException}.
+	 *            The cause of this {@link ProductionException}.
 	 */
-	public ConversionException(String message, Throwable cause) {
+	public ProductionException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
 	/**
-	 * Creates a new {@link ConversionException} with the given message.
+	 * Creates a new {@link ProductionException} with the given message.
 	 *
 	 * @param message
 	 *            The message.
 	 */
-	public ConversionException(String message) {
+	public ProductionException(String message) {
 		super(message);
 	}
 
 	/**
-	 * Creates a new {@link ConversionException} with the given cause
+	 * Creates a new {@link ProductionException} with the given cause.
 	 *
 	 * @param cause
-	 *            The cause of this {@link ConversionException}.
+	 *            The cause of this {@link ProductionException}.
 	 */
-	public ConversionException(Throwable cause) {
+	public ProductionException(Throwable cause) {
 		super(null == cause ? null : cause.getMessage(), cause);
 	}
 

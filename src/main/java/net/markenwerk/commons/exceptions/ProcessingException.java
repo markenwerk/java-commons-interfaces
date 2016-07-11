@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015 Torsten Krause, Markenwerk GmbH
+ * Copyright (c) 2015, 2016 Torsten Krause, Markenwerk GmbH
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,50 +21,49 @@
  */
 package net.markenwerk.commons.exceptions;
 
-import net.markenwerk.commons.interfaces.Producer;
+import javax.annotation.processing.Processor;
 
 /**
- * A {@link CreationException} indicates that a {@link Producer} failed to
- * produce a product.
+ * A {@link ProcessingException} indicates that a {@link Processor} failed to
+ * process a value.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)
- * @since 1.0.0
- * 
- * @see Producer
+ * @since 4.0.0
  */
-public final class CreationException extends RuntimeException {
+public final class ProcessingException extends RuntimeException {
 
-	private static final long serialVersionUID = 8658949883506215155L;
+	private static final long serialVersionUID = 9209467520610880460L;
 
 	/**
-	 * Creates a new {@link CreationException} with the given message and cause.
+	 * Creates a new {@link ProcessingException} with the given message and
+	 * cause.
 	 *
 	 * @param message
 	 *            The message.
 	 * @param cause
-	 *            The cause of this {@link CreationException}.
+	 *            The cause of this {@link ProcessingException}.
 	 */
-	public CreationException(String message, Throwable cause) {
+	public ProcessingException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
 	/**
-	 * Creates a new {@link CreationException} with the given message.
+	 * Creates a new {@link ProcessingException} with the given message.
 	 *
 	 * @param message
 	 *            The message.
 	 */
-	public CreationException(String message) {
+	public ProcessingException(String message) {
 		super(message);
 	}
 
 	/**
-	 * Creates a new {@link CreationException} with the given cause.
+	 * Creates a new {@link ProcessingException} with the given cause.
 	 *
 	 * @param cause
-	 *            The cause of this {@link CreationException}.
+	 *            The cause of this {@link ProcessingException}.
 	 */
-	public CreationException(Throwable cause) {
+	public ProcessingException(Throwable cause) {
 		super(null == cause ? null : cause.getMessage(), cause);
 	}
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015, 2016 Torsten Krause, Markenwerk GmbH
+ * Copyright (c) 2015 Torsten Krause, Markenwerk GmbH
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,64 +21,64 @@
  */
 package net.markenwerk.commons.interfaces;
 
-import java.util.Iterator;
-
-import net.markenwerk.commons.exceptions.CreationException;
+import net.markenwerk.commons.exceptions.ProductionException;
 
 /**
- * A {@link Producer} produces values of the corresponding product type.
+ * An {@link Producer} produces customized values of the corresponding product
+ * type. It acts like a {@link Provider} that takes orders and produces
+ * corresponding products.
  * 
  * <p>
- * Implementers must produce a new instance of the product, each time
- * {@link Producer#create()} is called. It is therefore possible to use a
- * {@link Producer} as a {@link Provider}.
+ * Implementers may produce a new instance of the product each time
+ * {@link Producer#produce(Object)} is called, but aren't required to do so. An
+ * instance of the product that has already been returned once, may be returned
+ * again for any or all following calls.
  * 
  * <p>
- * It is therefore okay to use {@link Producer Producers} for products that are
- * stateful.
+ * A {@link Producer} is intended to be used in a situation, where a mechanism
+ * to retrieve a value is more desirable than having the value from the start.
+ * These are usually, but not necessarily, situations where the following two
+ * conditions are met.
+ * 
+ * <ul>
+ * <li>It is not certain that the value will be used.</li>
+ * <li>It is likely that it is a costly operation to create the value.</li>
+ * </ul>
  * 
  * <p>
- * {@link Producer Producers} are intended to be used in situation, where a
- * mechanism to retrieve a value is more desirable than having the value from
- * the start and a {@link Provider} is not sufficient (i.e. because the product
- * is stateful).
+ * The second condition may only be true for the first call to
+ * {@link Producer#produce(Object)} since the {@link Producer} are allowed to
+ * cache and reuse the value.
  * 
- * <p>
- * {@link Producer Producers} are especially helpful, if it is likely that
- * multiple instances of a stateful product will be used (i.e. multiple
- * {@link Iterator Iterators} over the same underlying data). Another use case
- * where a {@link Producer} may be more favorable than a {@link Provider} is, if
- * it is not desirable to keep the value in memory.
- * 
+ * @param <Order>
+ *            The type of the product customization.
  * @param <Product>
  *            The type of the values to be produced.
- * @since 1.0.0
  * @author Torsten Krause (tk at markenwerk dot net)
- * @see Provider
+ * @since 1.0.0
  */
-public interface Producer<Product> extends Provider<Product> {
+public interface Producer<Order, Product> {
 
 	/**
-	 * Produces a new product. This may be a costly operation
-	 * 
-	 * <p>
-	 * Implementers must produce a new instance of the product, each time this
-	 * method is called.
-	 * 
-	 * <p>
-	 * It lies in the responsibility of the caller, to handle unwanted
-	 * {@literal null}-values by replacing them with a sensible default value or
-	 * throwing a {@link NullPointerException}.
+	 * Produces a customized product. This may be a costly operation
 	 * 
 	 * <p>
 	 * Implementers should catch any exception and wrap them in a
-	 * {@link CreationException}.
+	 * {@link ProductionException}.
+	 * 
+	 * <p>
+	 * Implementers may provide a new instance of the product each time this
+	 * method is called, but aren't required to do so. An instance of the
+	 * product that has already been returned once, may be returned again in any
+	 * or all following calls.
+	 * 
+	 * @param order
+	 *            The order to take into account.
 	 * 
 	 * @return The produced product.
-	 * @throws CreationException
+	 * @throws ProductionException
 	 *             If the production of the product failed.
 	 */
-	@Override
-	public Product create() throws CreationException;
+	public Product produce(Order order) throws ProductionException;
 
 }

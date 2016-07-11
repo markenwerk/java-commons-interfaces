@@ -25,11 +25,7 @@ import net.markenwerk.commons.exceptions.ConversionException;
 
 /**
  * A {@link Translator} is used to convert (transform, translate, project,
- * evaluate, ...) values from one form into another and back. As such, a
- * {@link Translator} is little more than an arbitrary function and its reveres
- * function.It is usually used in a scenario where some sort of data provider
- * wants to offer the possibility to convert values into the desired type before
- * delivery or during the data processing.
+ * evaluate, ...) values from one form into another and back.
  * 
  * <p>
  * Common use cases of a {@link Converter} include:
@@ -83,15 +79,18 @@ import net.markenwerk.commons.exceptions.ConversionException;
  *            The type to translate values from and to.
  * @param <To>
  *            The type to translate values to and from.
- * @since 1.0.0
  * @author Torsten Krause (tk at markenwerk dot net)
- * @see Converter
+ * @since 1.0.0
  */
 public interface Translator<From, To> extends Converter<From, To> {
 
 	/**
 	 * Called to revert a given value. This is the reverse function of
 	 * {@link Translator#convert(Object)}.
+	 * 
+	 * <p>
+	 * Implementers should catch any exception and wrap them in a
+	 * {@link ConversionException}.
 	 * 
 	 * <p>
 	 * Depending on the use case, if the given value {@literal null}, the
@@ -101,10 +100,6 @@ public interface Translator<From, To> extends Converter<From, To> {
 	 * It lies in the responsibility of the caller, to handle unwanted
 	 * {@literal null}-values by replacing them with a sensible default value or
 	 * throwing a {@link NullPointerException}.
-	 * 
-	 * <p>
-	 * Implementers should catch any exception and wrap them in a
-	 * {@link ConversionException}.
 	 * 
 	 * @param to
 	 *            The value to be reverted.

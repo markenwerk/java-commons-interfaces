@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015 Torsten Krause, Markenwerk GmbH
+ * Copyright (c) 2015, 2016 Torsten Krause, Markenwerk GmbH
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,48 +24,46 @@ package net.markenwerk.commons.exceptions;
 import net.markenwerk.commons.interfaces.Predicate;
 
 /**
- * A {@link EvaluationException} indicates that the evaluation of a
- * {@link Predicate} has failed.
+ * A {@link PredicationException} indicates that a {@link Predicate} failed to
+ * test a subject.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)
- * @since 1.0.0
- * 
- * @see Predicate
+ * @since 4.0.0
  */
-public final class EvaluationException extends RuntimeException {
+public final class PredicationException extends RuntimeException {
 
-	private static final long serialVersionUID = -1717421532938676308L;
+	private static final long serialVersionUID = -347270354675664640L;
 
 	/**
-	 * Creates a new {@link EvaluationException} with the given message and
+	 * Creates a new {@link PredicationException} with the given message and
 	 * cause.
 	 *
 	 * @param message
 	 *            The message.
 	 * @param cause
-	 *            The cause of this {@link EvaluationException}.
+	 *            The cause of this {@link PredicationException}.
 	 */
-	public EvaluationException(String message, Throwable cause) {
+	public PredicationException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
 	/**
-	 * Creates a new {@link EvaluationException} with the given message.
+	 * Creates a new {@link PredicationException} with the given message.
 	 *
 	 * @param message
 	 *            The message.
 	 */
-	public EvaluationException(String message) {
+	public PredicationException(String message) {
 		super(message);
 	}
 
 	/**
-	 * Creates a new {@link EvaluationException} with the given cause.
+	 * Creates a new {@link PredicationException} with the given cause.
 	 *
 	 * @param cause
-	 *            The cause of this {@link EvaluationException}.
+	 *            The cause of this {@link PredicationException}.
 	 */
-	public EvaluationException(Throwable cause) {
+	public PredicationException(Throwable cause) {
 		super(null == cause ? null : cause.getMessage(), cause);
 	}
 

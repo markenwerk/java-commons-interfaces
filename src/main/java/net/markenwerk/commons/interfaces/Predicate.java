@@ -21,18 +21,15 @@
  */
 package net.markenwerk.commons.interfaces;
 
-import net.markenwerk.commons.exceptions.EvaluationException;
+import net.markenwerk.commons.exceptions.PredicationException;
 
 /**
- * A {@link Predicate} is used to perform arbitrary test on test subject. It is
- * usually used in a scenario where some sort of data provider wants to offer
- * the possibility to filter values before delivery or during the data
- * processing.
+ * A {@link Predicate} is used to perform arbitrary test on test subject.
  * 
  * @param <Subject>
  *            The type of the values to perform tests on.
- * @since 1.0.0
  * @author Torsten Krause (tk at markenwerk dot net)
+ * @since 1.0.0
  */
 public interface Predicate<Subject> {
 
@@ -40,20 +37,15 @@ public interface Predicate<Subject> {
 	 * Performs the test on a given test subject.
 	 * 
 	 * <p>
-	 * It lies in the responsibility of the caller, to handle unwanted
-	 * {@literal null}-values by replacing them with a sensible default value or
-	 * throwing a {@link NullPointerException}.
-	 * 
-	 * <p>
 	 * Implementers should catch any exception and wrap them in a
-	 * {@link EvaluationException}.
+	 * {@link PredicationException}.
 	 * 
 	 * @param subject
 	 *            The test subject.
 	 * @return Whether the test subject passed the test.
-	 * @throws EvaluationException
+	 * @throws PredicationException
 	 *             If testing the test subject failed.
 	 */
-	public boolean test(Subject subject) throws EvaluationException;
+	public boolean test(Subject subject) throws PredicationException;
 
 }

@@ -26,49 +26,55 @@ import java.lang.ref.WeakReference;
 /**
  * For an arbitrary process, that will eventually yield a result, a
  * {@link Callback} is used, to convey that result from the executor of the
- * process (hereafter: executor) back to the initiator of the process
- * (hereafter: initiator).
+ * process (the callee) back to the initiator of the process (the caller).
  * 
  * <p>
- * Depending on the concrete scenario, the initiator may reuse the same instance
- * of {@link Callback} for multiple processes and even for the same executor,
- * although the letter is unusual.
+ * Depending on the concrete scenario, the caller may reuse the same instance of
+ * {@link Callback} for multiple processes and even for the same callee..
  * 
  * <p>
- * The executor must eventually call {@link Callback#onResult(Object)}, at least
- * once.
+ * In most scenarios, the callee must eventually call
+ * {@link Callback#onResult(Object, Object)}, at least once.
  * 
  * <p>
- * One common exception to this rule is, when the executor can ensure, that the
- * result wont't be needed by the initiator, because the initiator itself is not
+ * A useful exception to this rule is, when the callee can ensure, that the
+ * result wont't be needed by the caller, because the caller itself is not
  * needed anymore. This is usually implemented by placing the {@link Callback}
- * in a {@link WeakReference}. This should be noted in the contract of the
- * method, that is used to convey the {@link Callback} to the executor, because
- * using anonymous instances of {@link Callback} will fail in this case.
+ * in a {@link WeakReference}. Because using anonymous instances of
+ * {@link Callback} will most likely fail in this situation, it should be noted
+ * in the contract of the method, that takes the {@link Callback} as an
+ * argument.
  * 
  * <p>
- * The executor may call {@link Callback#onResult(Object)}, more than once,
- * depending o the concrete scenario, to convey partial or updated results. This
- * should be noted in the contract of the method, that is used to convey the
- * {@link Callback} to the executor.
+ * The callee may call {@link Callback#onResult(Object, Object)}, more than
+ * once, depending o the concrete scenario, to convey partial or updated
+ * results. This should be noted in the contract of the method, takes the
+ * {@link Callback} as an argument.
  * 
  * <p>
- * The executor must not call {@link Callback#onResult(Object)} more than once
- * for the same result.
+ * The callee must not call {@link Callback#onResult(Object, Object)} more than
+ * once for the same result.
  * 
+ * @param <Callee>
+ *            The type of the original
  * @param <Result>
  *            The type of the result of the process.
  * @since 1.0.0
  * @author Torsten Krause (tk at markenwerk dot net)
  */
-public interface Callback<Result> {
+public interface Callback<Callee, Result> {
 
 	/**
-	 * Called by the executor when a result is available.
+	 * Called by the callee if and when a result is available.
 	 * 
+	 * <p>
+	 * Implementers must not throw any exceptions.
+	 * 
+	 * @param callee
+	 *            The callee.
 	 * @param result
 	 *            The result.
 	 */
-	public void onResult(Result result);
+	public void onResult(Callee callee, Result result);
 
 }

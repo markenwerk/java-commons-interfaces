@@ -21,77 +21,42 @@
  */
 package net.markenwerk.commons.interfaces;
 
-import net.markenwerk.commons.exceptions.ConversionException;
+import net.markenwerk.commons.exceptions.ProcessingException;
 
 /**
- * A {@link Converter} is used to convert (transform, translate, project,
- * evaluate, ...) values from one form into another.
+ * A {@link Converter} is used to process (transform, translate, project,
+ * evaluate, ...) values.
  * 
- * <p>
- * Common use cases of a {@link Converter} include:
  * 
- * <ul>
- * <li>Conversion from a simple type into a more complex type.<br>
- * 
- * <pre>
- *  Converter&lt;String, UUID&gt; uuidConverter = new Converter&lt;String, UUID&gt; () {
- *    {@literal@}Override
- *    public UUID convert(String uuidString) throws ConverterException {
- *      try{
- *        return UUID.fromString(uuidString);
- *      } catch (IllegalArgumentException e) {
- *        throw new ConverterException(e);
- *      }
- *    }
- *  };
- * </pre>
- * 
- * </li>
- * <li>Projection of a complex type to one of it's components.<br>
- * 
- * <pre>
- * Converter&lt;Entity, Integer&gt; idConverter = new Converter&lt;Entity, Integer&gt; () {
- *   {@literal@}Override
- *   public Integer convert(Entity entity) throws ConverterException {
- *     return entity.getId();
- *   }
- * };
- * </pre>
- * 
- * </li>
- * </ul>
- * 
- * @param <From>
- *            The type to convert values from.
- * @param <To>
- *            The type to convert values to.
+ * @param <Value>
+ *            The type of the involved values.
  * @author Torsten Krause (tk at markenwerk dot net)
- * @since 1.0.0
+ * @since 4.0.0
  */
-public interface Converter<From, To> {
+public interface Processor<Value> {
 
 	/**
-	 * Called to convert a given value.
+	 * Called to process a given value.
 	 * 
 	 * <p>
 	 * Implementers should catch any exception and wrap them in a
-	 * {@link ConversionException}.
+	 * {@link ProcessingException}.
 	 * 
 	 * <p>
 	 * Depending on the use case, if the given value {@literal null}, the
-	 * {@link Converter} should return {@literal null}.
+	 * {@link Processor} should return {@literal null}.
 	 * 
 	 * <p>
 	 * It lies in the responsibility of the caller, to handle unwanted
 	 * {@literal null}-values by replacing them with a sensible default value or
-	 * throwing an appropriate {@link ConversionException}.
+	 * throwing an appropriate {@link ProcessingException}.
 	 * 
-	 * @param from
-	 *            The value to be converted.
-	 * @return The converted value.
-	 * @throws ConversionException
+	 * @param value
+	 *            The value to be processed.
+	 * @return The processed value.
+	 * @throws ProcessingException
 	 *             If the conversion failed.
 	 */
-	public To convert(From from) throws ConversionException;
+	public Value process(Value value) throws ProcessingException;
 
 }

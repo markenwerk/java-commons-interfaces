@@ -21,31 +21,19 @@
  */
 package net.markenwerk.commons.interfaces;
 
-import java.util.Iterator;
-
-import net.markenwerk.commons.exceptions.CreationException;
+import net.markenwerk.commons.exceptions.ProvisioningException;
 
 /**
  * A {@link Provider} provides values of the corresponding product type.
  * 
  * <p>
  * Implementers may provide a new instance of the product each time
- * {@link Provider#create()} is called, but aren't required to do so. An
+ * {@link Provider#provide()} is called, but aren't required to do so. An
  * instance of the product that has already been returned once, may be returned
  * again for any or all following calls.
  * 
  * <p>
- * It is therefore not recommended to use {@link Provider Provides} for products
- * that are stateful unless the internal state of a values doesn't change the
- * value. It is for example okay to use {@link String} as the product type,
- * although instances are stateful ({@link String} instances store their hash
- * value after it has been calculated for the first time and are therefore
- * technically stateful), but it is not okay to use {@link Iterator} as the
- * product type, because every call to {@link Iterator#next()} actually changes
- * the {@link Iterator} instance.
- * 
- * <p>
- * {@link Provider Providers} are intended to be used in situation, where a
+ * A {@link Provider} is intended to be used in a situation, where a
  * mechanism to retrieve a value is more desirable than having the value from
  * the start. These are usually, but not necessarily, situations where the
  * following two conditions are met.
@@ -57,14 +45,13 @@ import net.markenwerk.commons.exceptions.CreationException;
  * 
  * <p>
  * The second condition may only be true for the first call to
- * {@link Provider#create()} since {@link Provider Providers} are allowed to
+ * {@link Provider#provide()} since the {@link Provider} is allowed to
  * cache and reuse the value.
  * 
  * @param <Product>
  *            The type of the values to be provided.
- * @since 1.0.0
  * @author Torsten Krause (tk at markenwerk dot net)
- * @see Producer
+ * @since 1.0.0
  */
 public interface Provider<Product> {
 
@@ -72,24 +59,19 @@ public interface Provider<Product> {
 	 * Provides a product, This may be a costly operation.
 	 * 
 	 * <p>
+	 * Implementers should catch any exception and wrap them in a
+	 * {@link ProvisioningException}.
+	 * 
+	 * <p>
 	 * Implementers may provide a new instance of the product each time this
 	 * method is called, but aren't required to do so. An instance of the
 	 * product that has already been returned once, may be returned again in any
 	 * or all following calls.
 	 * 
-	 * <p>
-	 * It lies in the responsibility of the caller, to handle unwanted
-	 * {@literal null}-values by replacing them with a sensible default value or
-	 * throwing a {@link NullPointerException}.
-	 * 
-	 * <p>
-	 * Implementers should catch any exception and wrap them in a
-	 * {@link CreationException}.
-	 * 
 	 * @return The provided product.
-	 * @throws CreationException
+	 * @throws ProvisioningException
 	 *             If the provisioning of the product failed.
 	 */
-	public Product create() throws CreationException;
+	public Product provide() throws ProvisioningException;
 
 }
