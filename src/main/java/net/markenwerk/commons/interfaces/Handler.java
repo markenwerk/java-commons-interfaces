@@ -23,7 +23,7 @@ package net.markenwerk.commons.interfaces;
 
 import java.lang.ref.WeakReference;
 
-import net.markenwerk.commons.exceptions.HandelingException;
+import net.markenwerk.commons.exceptions.HandlingException;
 
 /**
  * For an arbitrary process, that may encounter some condition and needs to
@@ -68,13 +68,13 @@ public interface Handler<Value> {
 	 * 
 	 * <p>
 	 * Implementers should catch any exception and wrap them in a
-	 * {@link HandelingException}.
+	 * {@link HandlingException}.
 	 * 
 	 * @param value
 	 *            The involved value.
-	 * @throws HandelingException
+	 * @throws HandlingException
 	 *             If the handling failed.
 	 */
-	public void handle(Value value) throws HandelingException;
+	public void handle(Value value) throws HandlingException;
 
 }

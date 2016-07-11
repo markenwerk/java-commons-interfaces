@@ -25,7 +25,7 @@ import net.markenwerk.commons.interfaces.Converter;
 import net.markenwerk.commons.interfaces.Translator;
 
 /**
- * A {@link HandelingException} indicates that a {@link Converter} (or
+ * A {@link ConversionException} indicates that a {@link Converter} (or
  * {@link Translator}) failed to convert (or revert )a value.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)

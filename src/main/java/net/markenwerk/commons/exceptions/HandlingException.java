@@ -24,46 +24,46 @@ package net.markenwerk.commons.exceptions;
 import net.markenwerk.commons.interfaces.Handler;
 
 /**
- * A {@link HandelingException} indicates that a {@link Handler} failed to
+ * A {@link HandlingException} indicates that a {@link Handler} failed to
  * handle a value.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)
  * @since 4.0.0
  */
-public final class HandelingException extends RuntimeException {
+public final class HandlingException extends RuntimeException {
 
 	private static final long serialVersionUID = -7969584903156652488L;
 
 	/**
-	 * Creates a new {@link HandelingException} with the given message and
+	 * Creates a new {@link HandlingException} with the given message and
 	 * cause.
 	 *
 	 * @param message
 	 *            The message.
 	 * @param cause
-	 *            The cause of this {@link HandelingException}.
+	 *            The cause of this {@link HandlingException}.
 	 */
-	public HandelingException(String message, Throwable cause) {
+	public HandlingException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
 	/**
-	 * Creates a new {@link HandelingException} with the given message.
+	 * Creates a new {@link HandlingException} with the given message.
 	 *
 	 * @param message
 	 *            The message.
 	 */
-	public HandelingException(String message) {
+	public HandlingException(String message) {
 		super(message);
 	}
 
 	/**
-	 * Creates a new {@link HandelingException} with the given cause.
+	 * Creates a new {@link HandlingException} with the given cause.
 	 *
 	 * @param cause
-	 *            The cause of this {@link HandelingException}.
+	 *            The cause of this {@link HandlingException}.
 	 */
-	public HandelingException(Throwable cause) {
+	public HandlingException(Throwable cause) {
 		super(null == cause ? null : cause.getMessage(), cause);
 	}
 
