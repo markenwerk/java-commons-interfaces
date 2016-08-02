@@ -38,13 +38,13 @@ Therefore, this library provides a collection of common interfaces that describe
 
 The [`Predicate`][Predicate] interface should be used by components that perform tests on test subjects.
 
-A [`Predicate<Subject>`][Predicate] needs to implement the following method:
+A [`Predicate<Subject>`][Predicate] must implement the following method:
 
 ```java
-public boolean test(Subject subject) throws EvaluationException;
+public boolean test(Subject subject);
 ```
 
-A [`Predicate`][Predicate] should wrap every exception in an [`EvaluationException`][EvaluationException].
+A [`Predicate`][Predicate] should not throw any exceptions.
 
 ### Callback
 
@@ -70,24 +70,29 @@ public void handle(Handler result) throws HandlingException;
 
 A [`Handler`][Handler] should wrap every exception in an [`HandlingException`][HandlingException].
 
+### Processor
 
+The [`Processor`][Processor] interface should be used by components that perform modifications on some values.
 
+A [`Processor<Value>`][Processor] needs to implement the following method:
 
+```java
+public value process(Value value) throws ProcessingException;
+```
 
+A [`Processor`][Processor] should wrap every exception in an [`ProcessingException`][ProcessingException].
 
 ### Converter
 
-The [`Converter`][Converter] interface should be used by components that perform conversions on some values; most likely, but not necessarily, to convert a collection or stream if incoming or outgoing values.
+The [`Converter`][Converter] interface should be used by components that perform conversions on some values.
 
 A [`Converter<From, To>`][Converter] needs to implement the following method:
 
 ```java
-public To convert(From from) throws ConversionException
+public To convert(From from) throws ConversionException;
 ```
 
 A [`Converter`][Converter] should wrap every exception in an [`ConversionException`][ConversionException].
-
-One common use case for a [`Converter`][Converter] is some data provider, that wants to provide an elaborate API that can automatically convert the provided data.
 
 ### Translator
 
@@ -96,74 +101,51 @@ The [`Translator`][Translator] interface should be used by components that perfo
 A [`Translator<From, To>`][Translator] needs to implement the following methods:
 
 ```java
-public To convert(From from) throws ConversionException
+public To convert(From from) throws ConversionException;
 
-public To revert(From from) throws ConversionException
+public To revert(From from) throws ConversionException;
 ```
 
 A [`Translator`][Translator] should wrap every exception in an [`ConversionException`][ConversionException].
 
-
-#### Provider
+### Provider
 
 The [`Provider`][Provider] interface should be used by components that may need a value that may be costly (time-consuming) to produce and don't wan't to enforce its creation prematurely.
 
 A [`Provider<Product>`][Provider] needs to implement the following method:
 
 ```java
-public Product create() throws CreationException
+public Product provide() throws ProvisioningException;
 ```
 
-A [`Provider`][Provider] should wrap every exception in an [`CreationException`][CreationException]. A [`Provider`][Provider] may return the same instance for multiple invocations. Therefore, a [`Provider`][Provider] mustn't be used to provide stateful or consumable data.
+A [`Provider`][Provider] should wrap every exception in an [`ProvisioningException`][ProvisioningException].
 
-#### Order Provider
+### Producer
 
-The [`OrderProvider`][OrderProvider] interface should be used when a simple [`Provider`][Provider] is not sufficient, because it is necessary to obtain contextual (e.g. location-, date-, or language-dependent) values. It acts like a [`Provider`][Provider] that takes orders and provides corresponding values.
+The [`Producer`][Producer] interface should be used when a simple [`Provider`][Provider] is not sufficient, because it is necessary to obtain contextual (e.g. location-, date-, or language-dependent) values. It acts like a [`Provider`][Provider] that takes orders and produces corresponding values.
 
-An [`OrderProvider<Order, Product>`][OrderProvider] needs to implement the following method:
+A [`Producer<Order, Product>`][Producer] needs to implement the following method:
 
 ```java
-public Product create(Order order) throws CreationException
+public Product produce(Order order) throws ProductionException;
 ```
 
-#### Producer
-
-#### Simple Producer
-
-The [`Producer`][Producer] interface should be used by components that needs a value (that is not suitable to be provided by a [`Provider`][Provider], i.e. because it is stateful) that may be costly (time-consuming) to produce and don't wan't to enforce its creation prematurely or by components that need multiple fresh instances of some value.
-
-A [`Producer<Product>`][Producer] needs to implement the following method:
-
-```java
-public Product create() throws CreationException
-```
-
-A [`Producer`][Producer] should wrap every exception in an [`CreationException`][CreationException]. A [`Producer`][Producer] must return a new instance for every invocation.
-
-#### Order Producer
-
-The [`OrderProducer`][OrderProducer] interface should be used when a simple [`Producer`][Producer] is not sufficient, because it is necessary to obtain contextual (e.g. location-, date-, or language-dependent) values. It acts like a [`Producer`][Producer] that takes orders and produces corresponding values.
-
-
-An [`OrderProducer<Order, Product>`][OrderProducer] needs to implement the following method:
-
-```java
-public Product create(Order order) throws CreationException
-```
+A [`Producer`][Producer] should wrap every exception in an [`ProductionException`][ProductionException].
 
 [Callback]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/interfaces/Callback.html
 [Converter]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/interfaces/Converter.html
 [Handler]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/interfaces/Handler.html
-[OrderProducer]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/interfaces/OrderProducer.html
-[OrderProvider]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/interfaces/OrderProvider.html
 [Predicate]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/interfaces/Predicate.html
+[Processor]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/interfaces/Processor.html
 [Producer]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/interfaces/Producer.html
 [Provider]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/interfaces/Provider.html
 [Translator]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/interfaces/Translator.html
 
 [ConversionException]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/exceptions/ConversionException.html
-[EvaluationException]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/exceptions/EvaluationException.html
-[CreationException]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/exceptions/CreationException.html
+[HandelingException]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/exceptions/HandelingException.html
+[ProcessingException]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/exceptions/ProcessingException.html
+[ProductionException]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/exceptions/ProductionException.html
+[ProvisioningException]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/exceptions/ProvisioningException.html
 
 [Function]: http://docs.oracle.com/javase/8/docs/api/index.html?java/util/function/Function.html
 [Runnable]: http://docs.oracle.com/javase/8/docs/api/index.html?java/io/Runnable.html
