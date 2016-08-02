@@ -57,7 +57,7 @@ import net.markenwerk.commons.exceptions.HandlingException;
  * the same subject.
  * 
  * @param <Value>
- *            The type of the einvolved value.
+ *            The type of the involved values.
  * @author Torsten Krause (tk at markenwerk dot net)
  * @since 4.0.0
  */

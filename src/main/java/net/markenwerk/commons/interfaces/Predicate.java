@@ -33,7 +33,7 @@ public interface Predicate<Subject> {
 
 	/**
 	 * Performs the test on a given test subject.
-	 * 
+	 *
 	 * <p>
 	 * Implementers must not throw any exceptions.
 	 * 
