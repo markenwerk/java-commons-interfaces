@@ -35,7 +35,7 @@ import net.markenwerk.commons.exceptions.ConversionException;
  * 
  * <pre>
  * Converter&lt;String, UUID&gt; uuidTranslator = new Translator&lt;String, UUID&gt; () {
- *   {@literal@}Override
+ *   {@literal @}Override
  *   public UUID convert(String uuidString) throws ConverterException {
  *     try{
  *       return UUID.fromString(uuidString);
@@ -44,7 +44,7 @@ import net.markenwerk.commons.exceptions.ConversionException;
  *     }
  *   }
  *    
- *   {@literal@}Override
+ *   {@literal @}Override
  *   public String revert(UUID uuid) {
  *     return uuid.toString();
  *   }
@@ -56,12 +56,12 @@ import net.markenwerk.commons.exceptions.ConversionException;
  * 
  * <pre>
  * Converter&lt;Entity, Integer&gt; idConverter = new Converter&lt;Entity, Integer&gt; () {
- *   {@literal@}Override
+ *   {@literal @}Override
  *   public Integer convert(Entity entity) throws ConverterException {
  *     return entity.getId();
  *   }
  *   
- *   {@literal@}Override
+ *   {@literal @}Override
  *   public Entity revert(Integer id) {
  *     try{
  *       return EntityDao.getById(id);

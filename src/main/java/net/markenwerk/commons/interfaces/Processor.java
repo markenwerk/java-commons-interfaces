@@ -24,7 +24,7 @@ package net.markenwerk.commons.interfaces;
 import net.markenwerk.commons.exceptions.ProcessingException;
 
 /**
- * A {@link Converter} is used to process (transform, translate, project,
+ * A {@link Processor} is used to process (transform, translate, project,
  * evaluate, ...) values.
  * 
  * 

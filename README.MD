@@ -34,33 +34,9 @@ Therefore, this library provides a collection of common interfaces that describe
 
 ## Interfaces
 
-### Callback
-
-The [`Callback`][Callback] interface should be used by components that perform an operation that will eventually yield a result.
-
-A [`Callback<Result>`][Callback] needs to implement the following method:
-
-```java
-public void onResult(Result result);
-```
-
-A [`Callback`][Callback] should not throw any exceptions.
-
-### Handler
-
-The [`Handler`][Handler] interface should be used by components that perform an operation that may encounter some event.
-
-A [`Handler<Event>`][Handler] needs to implement the following method:
-
-```java
-public void handle(Handler result);
-```
-
-A [`Handler`][Handler] should not throw any exceptions.
-
 ### Predicate
 
-The [`Predicate`][Predicate] interface should be used by components that perform binary tests on some test subjects; most likely, but not necessarily, to filter a collection or stream if incoming or outgoing test subjects.
+The [`Predicate`][Predicate] interface should be used by components that perform tests on test subjects.
 
 A [`Predicate<Subject>`][Predicate] needs to implement the following method:
 
@@ -70,11 +46,36 @@ public boolean test(Subject subject) throws EvaluationException;
 
 A [`Predicate`][Predicate] should wrap every exception in an [`EvaluationException`][EvaluationException].
 
-One common use case for a [`Predicate`][Predicate] is some data provider, that wants to provide an elaborate API that can automatically filter the provided data.
+### Callback
 
-### Converter and Translator
+The [`Callback`][Callback] interface should be used by components that perform an operation that will eventually yield a result.
 
-#### Converter
+A [`Callback<Result>`][Callback] needs to implement the following method:
+
+```java
+public void onResult(Callee callee, Result result);
+```
+
+A [`Callback`][Callback] should not throw any exceptions.
+
+### Handler
+
+The [`Handler`][Handler] interface should be used by components that perform an operation that may encounter some condition and needs to delegate the handling.
+
+A [`Handler<Event>`][Handler] needs to implement the following method:
+
+```java
+public void handle(Handler result) throws HandlingException;
+```
+
+A [`Handler`][Handler] should wrap every exception in an [`HandlingException`][HandlingException].
+
+
+
+
+
+
+### Converter
 
 The [`Converter`][Converter] interface should be used by components that perform conversions on some values; most likely, but not necessarily, to convert a collection or stream if incoming or outgoing values.
 
@@ -103,11 +104,7 @@ public To revert(From from) throws ConversionException
 A [`Translator`][Translator] should wrap every exception in an [`ConversionException`][ConversionException].
 
 
-### Provider and Producer
-
 #### Provider
-
-#### Simple Provider
 
 The [`Provider`][Provider] interface should be used by components that may need a value that may be costly (time-consuming) to produce and don't wan't to enforce its creation prematurely.
 
