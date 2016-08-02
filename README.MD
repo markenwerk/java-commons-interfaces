@@ -38,7 +38,7 @@ Therefore, this library provides a collection of common interfaces that describe
 
 The [`Predicate`][Predicate] interface should be used by components that perform tests on test subjects.
 
-A [`Predicate<Subject>`][Predicate] must implement the following method:
+A [`Predicate`][Predicate] must implement the following method:
 
 ```java
 public boolean test(Subject subject);
@@ -50,7 +50,7 @@ A [`Predicate`][Predicate] should not throw any exceptions.
 
 The [`Callback`][Callback] interface should be used by components that perform an operation that will eventually yield a result.
 
-A [`Callback<Result>`][Callback] needs to implement the following method:
+A [`Callback`][Callback] needs to implement the following method:
 
 ```java
 public void onResult(Callee callee, Result result);
@@ -62,7 +62,7 @@ A [`Callback`][Callback] should not throw any exceptions.
 
 The [`Handler`][Handler] interface should be used by components that perform an operation that may encounter some condition and needs to delegate the handling.
 
-A [`Handler<Event>`][Handler] needs to implement the following method:
+A [`Handler`][Handler] needs to implement the following method:
 
 ```java
 public void handle(Handler result) throws HandlingException;
@@ -74,7 +74,7 @@ A [`Handler`][Handler] should wrap every exception in an [`HandlingException`][H
 
 The [`Processor`][Processor] interface should be used by components that perform modifications on some values.
 
-A [`Processor<Value>`][Processor] needs to implement the following method:
+A [`Processor`][Processor] needs to implement the following method:
 
 ```java
 public value process(Value value) throws ProcessingException;
@@ -86,7 +86,7 @@ A [`Processor`][Processor] should wrap every exception in an [`ProcessingExcepti
 
 The [`Converter`][Converter] interface should be used by components that perform conversions on some values.
 
-A [`Converter<From, To>`][Converter] needs to implement the following method:
+A [`Converter`][Converter] needs to implement the following method:
 
 ```java
 public To convert(From from) throws ConversionException;
@@ -98,7 +98,7 @@ A [`Converter`][Converter] should wrap every exception in an [`ConversionExcepti
 
 The [`Translator`][Translator] interface should be used by components that perform conversions on some values in both directions. It is an extension of [`Converter`][Converter].
 
-A [`Translator<From, To>`][Translator] needs to implement the following methods:
+A [`Translator`][Translator] needs to implement the following methods:
 
 ```java
 public To convert(From from) throws ConversionException;
@@ -112,7 +112,7 @@ A [`Translator`][Translator] should wrap every exception in an [`ConversionExcep
 
 The [`Provider`][Provider] interface should be used by components that may need a value that may be costly (time-consuming) to produce and don't wan't to enforce its creation prematurely.
 
-A [`Provider<Product>`][Provider] needs to implement the following method:
+A [`Provider`][Provider] needs to implement the following method:
 
 ```java
 public Product provide() throws ProvisioningException;
@@ -124,7 +124,7 @@ A [`Provider`][Provider] should wrap every exception in an [`ProvisioningExcepti
 
 The [`Producer`][Producer] interface should be used when a simple [`Provider`][Provider] is not sufficient, because it is necessary to obtain contextual (e.g. location-, date-, or language-dependent) values. It acts like a [`Provider`][Provider] that takes orders and produces corresponding values.
 
-A [`Producer<Order, Product>`][Producer] needs to implement the following method:
+A [`Producer`][Producer] needs to implement the following method:
 
 ```java
 public Product produce(Order order) throws ProductionException;
@@ -142,7 +142,7 @@ A [`Producer`][Producer] should wrap every exception in an [`ProductionException
 [Translator]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/interfaces/Translator.html
 
 [ConversionException]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/exceptions/ConversionException.html
-[HandelingException]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/exceptions/HandelingException.html
+[HandlingException]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/exceptions/HandlingException.html
 [ProcessingException]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/exceptions/ProcessingException.html
 [ProductionException]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/exceptions/ProductionException.html
 [ProvisioningException]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/exceptions/ProvisioningException.html
