@@ -34,6 +34,18 @@ Therefore, this library provides a collection of common interfaces that describe
 
 ## Interfaces
 
+### Check
+
+The [`Check`][Check] interface should be used by components that perform tests.
+
+A [`Check`][Check] must implement the following method:
+
+```java
+public boolean test();
+```
+
+A [`Check`][Check] should not throw any exceptions.
+
 ### Predicate
 
 The [`Predicate`][Predicate] interface should be used by components that perform tests on test subjects.
@@ -133,6 +145,7 @@ public Product produce(Order order) throws ProductionException;
 A [`Producer`][Producer] should wrap every exception in an [`ProductionException`][ProductionException].
 
 [Callback]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/interfaces/Callback.html
+[Check]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/interfaces/Check.html
 [Converter]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/interfaces/Converter.html
 [Handler]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/interfaces/Handler.html
 [Predicate]: https://markenwerk.github.io/java-commons-interfaces/index.html?net/markenwerk/commons/interfaces/Predicate.html
