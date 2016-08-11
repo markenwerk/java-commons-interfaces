@@ -16,7 +16,7 @@ This library is hosted in the [Maven Central Repository](https://maven-badges.he
 <dependency>
 	<groupId>net.markenwerk</groupId>
 	<artifactId>commons-interfaces</artifactId>
-	<version>4.0.0</version>
+	<version>4.0.1</version>
 </dependency>
 ```
 
